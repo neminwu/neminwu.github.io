@@ -6,69 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Nemin Wu's Website</title>
+    <title>Nemin Wu</title>
     <link rel="icon" type="image/x-icon" href="img/nelephant.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Leaflet map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Nemin Wu</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="img/neggplant.jpg" alt="..." /></span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="topNav">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Nemin Wu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
+
     <!-- Page Content-->
-    <div class="container-fluid p-0">
+    <div class="main-content">
+
         <!-- About-->
         <section class="resume-section" id="about">
             <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Nemin
-                    <span class="text-primary">Wu</span>
-                </h1>
-                <div class="subheading mb-5" style="text-transform: capitalize;">
-                    University of Georgia · Athens, GA 30602 ·
-                    <a href="mailto:Nemin.Wu[at]uga.edu">Nemin.Wu[at]uga.edu</a>
+                <div class="d-flex flex-column flex-md-row align-items-md-center mb-4">
+                    <img class="img-profile rounded-circle me-md-4 mb-3 mb-md-0"
+                        src="img/neggplant.jpg" alt="Nemin Wu" />
+                    <div>
+                        <h1 class="mb-1">Nemin <span class="text-primary">Wu</span></h1>
+                        <div class="subheading mb-1">University of Georgia · Athens, GA 30602</div>
+                        <a href="mailto:Nemin.Wu[at]uga.edu">Nemin.Wu[at]uga.edu</a>
+                    </div>
                 </div>
-                <p class="lead mb-5">Nemin Wu is a Ph.D. student in Geography and a Master’s student in Artificial
-                    Intelligence at the University of Georgia. She earned her Bachelor’s degree from Wuhan University.
+                <p class="lead mb-4">Nemin Wu is a Ph.D. student in Geography and a Master's student in Artificial
+                    Intelligence at the University of Georgia. She earned her Bachelor's degree from Wuhan University.
                     Her research is focused on spatial heterogeneity, spatial representation learning, and GIS for
                     health and environment. Nemin has been recognized with several awards, including 1st place in the
                     2024 AAG GISS Graduate Student Honors Paper Award, 1st place in the 2024 Graduate Student Lightning
                     Talk Competition on GIS Day at UGA, and 1st place for her presentation at the 10th Annual Health
                     Services Research Day at Emory University.</p>
                 <div class="social-icons">
-                    <a class="social-icon" href="https://www.linkedin.com/in/neminwu"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="https://github.com/NeminWu"><i class="fab fa-github"></i></a>
-                    <a class="social-icon" href="https://scholar.google.com/citations?hl=en&user=u2tvzX0AAAAJ"><i class="fa-solid fa-graduation-cap"></i></a>
-                    <!-- <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a> -->
-                    <!-- <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a> -->
+                    <a class="social-icon" href="https://www.linkedin.com/in/neminwu">
+                        <i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon" href="https://github.com/NeminWu">
+                        <i class="fab fa-github"></i></a>
+                    <a class="social-icon" href="https://scholar.google.com/citations?hl=en&user=u2tvzX0AAAAJ">
+                        <i class="fa-solid fa-graduation-cap"></i></a>
                 </div>
             </div>
         </section>
 
         <hr class="m-0" />
+
         <!-- Education-->
         <section class="resume-section" id="education">
             <div class="resume-section-content">
@@ -77,247 +82,273 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                     <div class="flex-grow-1">
                         <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-2">Ph.D. in Geography</div>
-                        <!-- <p class="mb-0">GPA: 4.0/4.0</p> -->
+                        <div class="subheading mb-1">Ph.D. in Geography</div>
                     </div>
-                    <div class="flex-shrink-0 text-md-right">
-                        <span class="text-primary">GPA: 4.0/4.0</span> 
-                        <!-- August 2021 - June 2026 -->
+                    <div class="flex-shrink-0 text-md-end">
+                        <span class="text-primary">GPA: 4.0/4.0</span>
                     </div>
                 </div>
 
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                     <div class="flex-grow-1">
                         <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-2">M.S. in Artificial Intelligence</div>
-                        <!-- <p class="mb-0">GPA: 4.0/4.0</p> -->
+                        <div class="subheading mb-1">M.S. in Artificial Intelligence</div>
                     </div>
-                    <div class="flex-shrink-0 text-md-right">
+                    <div class="flex-shrink-0 text-md-end">
                         <span class="text-primary">GPA: 4.0/4.0</span>
-                        <!-- August 2021 - June 2026 -->
                     </div>
                 </div>
 
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                     <div class="flex-grow-1">
                         <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-2">GIScience Certificate</div>
-                        <!-- <p class="mb-0">GPA: 4.0/4.0</p> -->
+                        <div class="subheading mb-1">GIScience Certificate</div>
                     </div>
-                    <div class="flex-shrink-0 text-md-right">
+                    <div class="flex-shrink-0 text-md-end">
                         <span class="text-primary">GPA: 4.0/4.0</span>
-                        <!-- August 2021 - June 2022 -->
                     </div>
                 </div>
 
                 <div class="d-flex flex-column flex-md-row justify-content-between">
                     <div class="flex-grow-1">
                         <h3 class="mb-1">Wuhan University</h3>
-                        <div class="subheading mb-2">BSc. in Geographic Information Science</div>
-                        <p class="mb-0">GPA: 3.8/4.0</p>
+                        <div class="subheading mb-1">BSc. in Geographic Information Science</div>
                     </div>
-                    <div class="flex-shrink-0 text-md-right">
+                    <div class="flex-shrink-0 text-md-end">
                         <span class="text-primary">GPA: 3.8/4.0</span>
-                        <!-- September 2016 - June 2020 -->
                     </div>
                 </div>
-
             </div>
         </section>
 
-
         <hr class="m-0" />
+
         <!-- Publications-->
         <section class="resume-section" id="publications">
             <div class="resume-section-content">
                 <h2 class="mb-5">Publications</h2>
-                <div class="resume-item d-flex flex-column flex-md-row justify-content-between"></div>
-                <div class="resume-content mb-5">
-                    <h3 class="mb-3">Peer-reviewed Publication</h3>
-                    <div>[3] <b>Wu, N.</b>, Cao, Q., Wang, Z., Liu, Z., Qi, Y., Zhang, J., Ni, J., Yao, X., Ma, H., Mu,
-                        L.
-                        and Ermon, S., 2024. TorchSpatial: A Location Encoding Framework and Benchmark for Spatial
-                        Representation Learning. NeurIPS 2024 Datasets and Benchmarks Track
-                        <font color="bs-orange"><i>(Premier Conference on Machine Learning, Track Acceptance Rate
-                                25.3%)</i></font>.
-                    </div>
-
-                    <div>[2] Cao, Q., <b>Wu, N.</b>, Wang, Z., Liu, Z., Qi, Y., Zhang, J., Ni, J., Yao, X., Ma, H., Mu,
-                        L.
-                        and Ermon, S., 2024. TorchSpatial: A Python Package for Spatial Representation Learning and
-                        Geo-Aware
-                        Model Development. 3rd ACM SIGSPATIAL International Workshop on Spatial Big Data and AI for
-                        Industrial
-                        Applications (GeoIndustry'24).</div>
-
-                    <div>[1] <b>Wu, N.</b> and Mu, L., 2023. Impact of COVID-19 on online grocery shopping discussion
-                        and
-                        behavior reflected from Google Trends and geotagged tweets. Computational Urban Science, p.7.
-                    </div>
-
-                </div>
 
                 <div class="resume-content mb-5">
-                    <h3 class="mb-3">Preprint</h3>
-                    <div>[1] Tan, C., Cao, Q., Li, Y., Zhang, J., Yang, X., Zhao, H., Wu, Z., Liu, Z., Yang, H., <b>Wu,
-                            N.</b> and Tang, T., 2023. On the Promises and Challenges of Multimodal Foundation Models
-                        for Geographical, Environmental, Agricultural, and Urban Planning Applications. arXiv preprint
-                        arXiv:2312.17016.</div>
+                    <h3 class="mb-3">Selected Publications</h3>
+                    <div class="mb-2">[1] <b>Wu, N.</b> and Mu, L., 2023. Impact of COVID-19 on online grocery shopping discussion and behavior reflected from Google Trends and geotagged tweets. <i>Computational Urban Science</i> 3(1), 7.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:qjMakFHDy7sC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[2] Tan, C., Cao, Q., Li, Y., Zhang, J., Yang, X., Zhao, H., Wu, Z., Liu, Z., Yang, H., <b>Wu, N.</b>, et al., 2023. On the Promises and Challenges of Multimodal Foundation Models for Geographical, Environmental, Agricultural, and Urban Planning Applications. <i>arXiv preprint arXiv:2312.17016</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:2osOgNQ5qMEC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[3] <b>Wu, N.</b>, Cao, Q., Wang, Z., Liu, Z., Qi, Y., Zhang, J., Ni, J., Yao, X., Ma, H., Mu, L. and Ermon, S., 2024. TorchSpatial: A Location Encoding Framework and Benchmark for Spatial Representation Learning. <i>Advances in Neural Information Processing Systems 37 (NeurIPS 2024)</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:UeHWp8X0CEIC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[4] Cao, Q., <b>Wu, N.</b>, Wang, Z., Liu, Z., Qi, Y., Zhang, J., Ni, J., Yao, X., Ma, H., Mu, L. and Ermon, S., 2024. TorchSpatial: A Python Package for Spatial Representation Learning and Geo-Aware Model Development. <i>3rd ACM SIGSPATIAL International Workshop on Spatial Big Data and AI for Industrial Applications</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:zYLM7Y9cAGgC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[5] Dai, H., <b>Wu, N.</b>, Dong, Z., Ren, J., Gao, Y. and Zhao, B., 2025. Comparison and evaluation of machine learning models for predicting indoor PM2.5 concentrations on a large spatiotemporal scale. <i>Building Simulation</i> 18(6), 1453–1466.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:YsMSGLbcyi4C" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[6] Wang, Z., Zhang, J., Zhou, Z., Cao, Q., <b>Wu, N.</b>, Liu, Z., Mu, L., Song, Y., Xie, Y., Lao, N., et al., 2025. LocDiffusion: Identifying Locations on Earth by Diffusing in the Hilbert Space. <i>arXiv preprint</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:W7OEmFMy1HYC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[7] Wang, Z., <b>Wu, N.</b>, Cao, Q., Xia, J., Liu, Z., Xie, Y., Nambi, A., Ganu, T., Lao, N., Liu, N., et al., 2025. GeoBS: Information-Theoretic Quantification of Geographic Bias in AI Models. <i>arXiv preprint arXiv:2509.23482</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:WF5omc3nYNoC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[8] Wang, Z., Liu, Z., Zhang, J., Zhou, Z., Cao, Q., <b>Wu, N.</b>, Mu, L., Song, Y., Xie, Y., Lao, N., et al., 2026. LocDiff: Identifying Locations on Earth by Diffusing in the Hilbert Space. <i>Advances in Neural Information Processing Systems 38</i>, 620–647.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:LkGwnXOMwfcC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[9] Tiwari, B.B., Shin, E., <b>Wu, N.</b>, Mu, L., Khan, M.M., Atkins, E., Benjamin, E., et al., 2026. Designated and non-designated trauma centers and trauma patients: a retrospective analysis of non-fatal trauma discharges in Georgia, 2021. <i>Injury Epidemiology</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:eQOLeE2rZwMC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[10] Tiwari, B.B., <b>Wu, N.</b>, Mu, L., Khan, M.M. and Rajbhandari, J., 2026. Right Care, Right Place, Right Time: Optimizing Georgia's Trauma Access Landscape. <i>2026 Annual Research Meeting</i>.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:Se3iqnhoufwC" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[11] Mai, G., Lao, N., Zhang, J., Mao, L., Wang, Z., <b>Wu, N.</b>, Janowicz, K., Wu, K., Rao, J., et al., 2026. On the Ethics of Generative GeoAI: Explainability, Bias, Hallucination, Accountability, Privacy, and Trust. <i>Geography According to Foundation Models</i>, 215–232.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:UebtZRa9Y70C" target="_blank">[link]</a>
+                    </div>
+                    <div class="mb-2">[12] Mai, G., Liu, Z., Lao, N., Sun, W., Ma, Y., Song, J., Meng, C., Ma, H., Rao, J., Cao, Q., <b>Wu, N.</b>, et al. SSIF: Physics-Inspired Implicit Representations for Spatial-Spectral Image Super-Resolution.
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=u2tvzX0AAAAJ&citation_for_view=u2tvzX0AAAAJ:Y0pCki6q_DkC" target="_blank">[link]</a>
+                    </div>
                 </div>
 
                 <div class="resume-content mb-5">
                     <h3 class="mb-3">Manuscript under Review</h3>
-                    <div>[1] <b>Wu, N.</b>, Mai, G., Mu, L., Lao, N., 2024. Integrating Spatial Heterogeneity and
-                        Temporal
-                        Variability to Human Mobility Origin-Destination Flow Prediction with Spatio-Temporal Explicit
+                    <div class="mb-2">[1] <b>Wu, N.</b>, Mai, G., Mu, L., Lao, N., 2024. Integrating Spatial Heterogeneity and
+                        Temporal Variability to Human Mobility Origin-Destination Flow Prediction with Spatio-Temporal Explicit
                         Deep Gravity Model (STExDGM).</div>
-                    <br>
                 </div>
 
                 <div class="resume-content mb-5">
                     <h3 class="mb-3">Peer-reviewed Conference Presentation</h3>
-                    <div>[6] <b>Wu, N.</b>, Mu, L., Tiwari, B. B., Thapa, J. R.*, Khan, M., (2024) “Urban-Rural
-                        Disparities
-                        of Trauma Care Accessibility in Georgia”. place at the 10th Annual Health Services Research Day
+                    <div class="mb-2">[6] <b>Wu, N.</b>, Mu, L., Tiwari, B. B., Thapa, J. R.*, Khan, M., (2024) "Urban-Rural
+                        Disparities of Trauma Care Accessibility in Georgia". place at the 10th Annual Health Services Research Day
                         at Emory University, Atlanta, U.S. <font color="bs-yellow"><i>(The 1st prize of Poster
                                 Presentation)</i></font>
                     </div>
-                    <div>[5] <b>Wu, N.</b>, Mu, L., Mai, G., Lao, Ni., (2024) “Spatiotemporal Explicit Deep Gravity
-                        Model
-                        (STExDGM) for Origin-Destination Flow Generation”. AAG, Honolulu, U.S. <font
-                            color="bs-highlight-rgb">
-                            <i>(The 1st prize of GISS-SG Graduate Student Honors Paper Competition Award)</i>
-                        </font>
+                    <div class="mb-2">[5] <b>Wu, N.</b>, Mu, L., Mai, G., Lao, Ni., (2024) "Spatiotemporal Explicit Deep Gravity
+                        Model (STExDGM) for Origin-Destination Flow Generation". AAG, Honolulu, U.S.
+                        <font color="bs-highlight-rgb"><i>(The 1st prize of GISS-SG Graduate Student Honors Paper Competition Award)</i></font>
                     </div>
-                    <div>[4] <b>Wu, N.</b>, Mu, L., Mai, G., Lao, Ni., (2023) “Spatial Contextual Effects”. AAG,
-                        Honolulu,
-                        HI8.on GIS Day at UGA, Athens, GA, U.S. <font color="bs-highlight-rgb"><i>(The 1st prize of
-                                Graduate student
-                                lightning talk competition)</i></font>
+                    <div class="mb-2">[4] <b>Wu, N.</b>, Mu, L., Mai, G., Lao, Ni., (2023) "Spatial Contextual Effects". AAG,
+                        Honolulu, HI8.on GIS Day at UGA, Athens, GA, U.S.
+                        <font color="bs-highlight-rgb"><i>(The 1st prize of Graduate student lightning talk competition)</i></font>
                     </div>
-                    <div>[3] <b>Wu, N.</b>, Mu, L., Mai, G. (2023) “Recreational Use of Green Space Patterns during the
-                        COVID-19 Outbreak in Georgia, US”. AAG, Denver, CO, U.S.</div>
-                    <div>[2] <b>Wu, N.</b>, Mu, L. Ni, L., Mai, G. (2022) “A Spatially Explicit Machine Learning Model
-                        for
-                        Visit Prediction to Georgia Recreational Vehicle Parks”. SEDAAG, Atlanta, GA, U.S.</div>
-                    <div>[1] <b>Wu, N.</b>, Mu, L. (2022) “Health Consciousness of obesity on Twitter: Sentiment
-                        Analysis
-                        and Topic Modeling Study”. UGA Obesity Initiative Symposium, Athens, GA, U.S.</div>
+                    <div class="mb-2">[3] <b>Wu, N.</b>, Mu, L., Mai, G. (2023) "Recreational Use of Green Space Patterns during the
+                        COVID-19 Outbreak in Georgia, US". AAG, Denver, CO, U.S.</div>
+                    <div class="mb-2">[2] <b>Wu, N.</b>, Mu, L. Ni, L., Mai, G. (2022) "A Spatially Explicit Machine Learning Model for
+                        Visit Prediction to Georgia Recreational Vehicle Parks". SEDAAG, Atlanta, GA, U.S.</div>
+                    <div class="mb-2">[1] <b>Wu, N.</b>, Mu, L. (2022) "Health Consciousness of obesity on Twitter: Sentiment
+                        Analysis and Topic Modeling Study". UGA Obesity Initiative Symposium, Athens, GA, U.S.</div>
                 </div>
             </div>
         </section>
 
         <hr class="m-0" />
+
         <!-- Experience-->
         <section class="resume-section" id="experience">
             <div class="resume-section-content">
                 <h2 class="mb-5">Experience</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between"></div>
 
                 <div class="resume-content mb-5">
                     <h3 class="mb-3">Teaching</h3>
-                    <div>[4] 2023S Geoscience for Health and Environment, Lab Instructor, Department of Geography, UGA
-                    </div>
-                    <div>[3] 2022F Programming in GIS, Lab Instructor, Department of Geography, UGA</div>
-                    <div>[2] 2022S Introduction to GIS, Lab Instructor, Department of Geography, UGA</div>
-                    <div>[1] 2021F Introduction to GIS, Lab Instructor, Department of Geography, UGA</div>
+                    <div class="mb-1">[4] 2023S Geoscience for Health and Environment, Lab Instructor, Department of Geography, UGA</div>
+                    <div class="mb-1">[3] 2022F Programming in GIS, Lab Instructor, Department of Geography, UGA</div>
+                    <div class="mb-1">[2] 2022S Introduction to GIS, Lab Instructor, Department of Geography, UGA</div>
+                    <div class="mb-1">[1] 2021F Introduction to GIS, Lab Instructor, Department of Geography, UGA</div>
                 </div>
 
                 <div class="resume-content mb-5">
-                    <h3 class="mb-3">Intership</h3>
+                    <h3 class="mb-3">Internship</h3>
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
                             <div class="subheading mb-1">Research Assistant</div>
-                            <div class="subheading mb-3">Carl Vinson Institute of Government</div>
-                            <p>Developed an automatic system made for batches of CAMA data cleaning operations.<br>
+                            <div class="mb-1 text-muted">Carl Vinson Institute of Government</div>
+                            <p class="mb-0">Developed an automatic system made for batches of CAMA data cleaning operations.<br>
                                 Improved the information and tools available to communities and local advocates working
                                 to address the impacts of heirs property on rural and underserved populations.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">June 2022 - February 2024, Athens,
-                                US</span></div>
+                        <div class="flex-shrink-0 ms-md-4">
+                            <span class="text-primary">June 2022 – February 2024, Athens, US</span>
+                        </div>
                     </div>
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
                             <div class="subheading mb-1">Technical Engineer</div>
-                            <div class="subheading mb-3">Beijing BGS Technology Co., Ltd</div>
-                            <p>Participated in the system design for the Public Transportation Safety Management System.
-                                <br>
+                            <div class="mb-1 text-muted">Beijing BGS Technology Co., Ltd</div>
+                            <p class="mb-0">Participated in the system design for the Public Transportation Safety Management System.<br>
                                 Involved in the design of the spatial database system, developed, and published the
-                                metadata management software module.
-                            </p>
+                                metadata management software module.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">June 2018 - September 2018, Beijing,
-                                China</span></div>
+                        <div class="flex-shrink-0 ms-md-4">
+                            <span class="text-primary">June 2018 – September 2018, Beijing, China</span>
+                        </div>
                     </div>
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
                             <div class="subheading mb-1">Technical Engineer</div>
-                            <div class="subheading mb-3">Wuhan BGS Technology Co., Ltd.</div>
-                            <p>Fulfilled duties of software development and hardware integration for the Call-taking and
-                                Dispatch System.
-                                <br>
-                                Verified the geographical spatial data and maintained the spatial database for the
-                                Resources.
-                                <br>
-                                Developed and published a special software for uploading spatial data.
-                                <br>
-                                <font color="bs-highlight-rgb"><i>Awarded Best Intern of the Year in Aug. 2017.</i>
-                                </font>
+                            <div class="mb-1 text-muted">Wuhan BGS Technology Co., Ltd.</div>
+                            <p class="mb-0">Fulfilled duties of software development and hardware integration for the Call-taking and
+                                Dispatch System.<br>
+                                Verified the geographical spatial data and maintained the spatial database for the Resources.<br>
+                                Developed and published a special software for uploading spatial data.<br>
+                                <font color="bs-highlight-rgb"><i>Awarded Best Intern of the Year in Aug. 2017.</i></font>
                             </p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2017 - September 2017, Wuhan,
-                                China</span></div>
+                        <div class="flex-shrink-0 ms-md-4">
+                            <span class="text-primary">July 2017 – September 2017, Wuhan, China</span>
+                        </div>
                     </div>
-
                 </div>
+
+                <!-- Experience Map & Timeline -->
+                <div class="map-section">
+                    <button class="map-toggle-btn" id="mapToggleBtn" onclick="toggleExpMap()">
+                        <span><i class="fas fa-globe-americas me-2"></i>Experience Map &amp; Timeline</span>
+                        <i class="fas fa-chevron-down" id="mapToggleIcon"></i>
+                    </button>
+                    <div class="map-panel" id="mapPanel">
+                        <div class="map-layout">
+                            <div class="map-timeline" id="mapTimeline">
+                                <div class="tl-label">Journey</div>
+                            </div>
+                            <div class="map-right">
+                                <div id="experienceMap"></div>
+                                <div class="map-legend">
+                                    <div class="legend-item"><span class="legend-dot" style="background:#8ecae6"></span>Teaching</div>
+                                    <div class="legend-item"><span class="legend-dot" style="background:#219ebc"></span>Research</div>
+                                    <div class="legend-item"><span class="legend-dot" style="background:#ffb703"></span>Internship</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <hr class="m-0" />
-        <!-- Skills-->
-        <section class="resume-section" id="skills">
+
+        <!-- Honor & Award-->
+        <section class="resume-section" id="awards">
             <div class="resume-section-content">
-                <h2 class="mb-5">Skills</h2>
-                <div class="subheading mb-3">Programming Languages & Tools</div>
-                <ul class="list-inline dev-icons">
-                    <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-angular"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-less"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
-                    <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-                </ul>
-                <div class="subheading mb-3">Workflow</div>
-                <ul class="fa-ul mb-0">
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Mobile-First, Responsive Design
+                <h2 class="mb-5">Honor &amp; Award</h2>
+                <ul class="fa-ul mb-0 awards-list">
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2024&nbsp;&nbsp;The 1<sup>st</sup> place at the 10th Annual Health Services Research Day at Emory University
                     </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Cross Browser Testing & Debugging
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2024&nbsp;&nbsp;The 1<sup>st</sup> prize of Association of Geography (AAG) Geographic Information
+                        Science (GIS) Special Group Graduate Student Honors Paper Competition Award
                     </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Cross Functional Teams
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2024&nbsp;&nbsp;Association of Geography (AAG) Spatial Analysis &amp; Modeling (SAM) Special Group
+                        Student Travel Award
                     </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Agile Development & Scrum
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2023&nbsp;&nbsp;The 1<sup>st</sup> prize of Graduate student lightning talk competition on GIS Day at UGA
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2023&nbsp;&nbsp;The winner of the Health and Medical Geography Group (HMGSG) of American
+                        Association of Geography (AAG) Logo Redesign Contest
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2020&nbsp;&nbsp;Excellent Participant in the Summer School of the Joint Lab of Beijing Academy of
+                        Artificial Intelligence (BAAI), BAAI &amp; JD.com
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2020&nbsp;&nbsp;The best team leader of the Excellent Team in the Summer School of the Joint Lab
+                        of Beijing Academy of Artificial Intelligence (BAAI), BAAI &amp; JD.com
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2019&nbsp;&nbsp;Outstanding Student &amp; 2<sup>nd</sup> Prize of Excellent Student Scholarship, WHU
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2018&nbsp;&nbsp;Outstanding Student &amp; 3<sup>rd</sup> Prize of Excellent Student Scholarship, WHU
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2018&nbsp;&nbsp;Best Student &amp; 1<sup>st</sup> Prize of Excellent Student in Spanish Class, EYoungGo Institution
+                    </li>
+                    <li class="mb-3">
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                        2016&nbsp;&nbsp;1<sup>st</sup> Drama Prize of Autumn Art Festival (as a writer and director), WHU
                     </li>
                 </ul>
             </div>
         </section>
+
         <hr class="m-0" />
+
         <!-- Interests-->
         <section class="resume-section" id="interests">
             <div class="resume-section-content">
@@ -330,101 +361,9 @@
                     technology advancements in the front-end web development world.</p>
             </div>
         </section>
-        <hr class="m-0" />
-        <!-- Honor & Award-->
-        <section class="resume-section" id="awards">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Honor & Award</h2>
-                <ul class="fa-ul mb-0">
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2024&nbsp;The 1<sup>st</sup> place at the 10th Annual Health Services Research Day at Emory
-                            University
-                        </span>
-                        <span class="ml-auto"></span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2024&nbsp;The 1<sup>st</sup> prize of Association of Geography (AAG) Geographic Information
-                            Science (GIS) Special Group Graduate Student Honors Paper Competition Award
-                        </span>
-                        <span class="ml-auto">$750</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2024&nbsp;Association of Geography (AAG) Spatial Analysis & Modeling (SAM) Special Group
-                            Student Travel Award
-                        </span>
-                        <span class="ml-auto">$250</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2023&nbsp;The 1<sup>st</sup> prize of Graduate student lightning talk competition on GIS Day
-                            at UGA
-                        </span>
-                        <span class="ml-auto">$300</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2023&nbsp;The winner of the Health and Medical Geography Group (HMGSG) of American
-                            Association of Geography (AAG) Logo Redesign Contest
-                        </span>
-                        <span class="ml-auto">$300</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2020&nbsp;Excellent Participant in the Summer School of the Joint Lab of Beijing Academy of
-                            Artificial Intelligence (BAAI), BAAI & JD.com
-                        </span>
-                        <span class="ml-auto">$100</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2020&nbsp;The best team leader of the Excellent Team in the Summer School of the Joint Lab
-                            of Beijing Academy of Artificial Intelligence (BAAI), BAAI & JD.com
-                        </span>
-                        <span class="ml-auto">$100</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2019&nbsp;Outstanding Student & 2<sup>nd</sup> Prize of Excellent Student Scholarship, WHU
-                        </span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2018&nbsp;Outstanding Student & 3<sup>rd</sup> Prize of Excellent Student Scholarship, WHU
-                        </span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2018&nbsp;Best Student & 1<sup>st</sup> Prize of Excellent Student in Spanish Class,
-                            EYoungGo Institution
-                        </span>
-                        <span class="ml-auto">¥500</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2016&nbsp;1<sup>st</sup> Drama Prize of Autumn Art Festival (as a writer and director), WHU
-                        </span>
-                        <span class="ml-auto"></span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
 
     </div>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

@@ -35,7 +35,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #bd5d38;
+  --bs-primary: #fb8500;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -43,9 +43,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-highlight-rgb: 189, 93, 56;
-  /* orange: --bs-primary-rgb: 189, 93, 56; */
-  --bs-primary-rgb: 147, 197, 114;
+  --bs-highlight-rgb: 251, 133, 0;
+  --bs-primary-rgb: 251, 133, 0;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -76,8 +75,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #bd5d38;
-  --bs-link-hover-color: #974a2d;
+  --bs-link-color: #219ebc;
+  --bs-link-hover-color: #023047;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -12613,163 +12612,233 @@ fieldset:disabled .btn {
   }
 }
 
+/*
+ * Theme: Ocean to Flame
+ * Sky Blue (Light)  #8ecae6
+ * Blue Green        #219ebc
+ * Deep Space Blue   #023047
+ * Amber Flame       #ffb703
+ * Tiger Orange      #fb8500
+ */
+
 body {
-  padding-top: 3.375rem;
-  color: #6c757d;
+  padding-top: 56px;
+  color: #1a1a2e;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 0;
-    padding-left: 17rem;
-  }
+h1, .h1 {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #023047;
 }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  text-transform: uppercase;
+h2, .h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #023047;
 }
 
-h1,
-.h1 {
-  line-height: 1;
+h3, .h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #219ebc;
 }
 
 p.lead {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 400;
+  line-height: 1.7;
+  color: #444;
 }
 
 .subheading {
   font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
-  text-transform: uppercase;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  color: #219ebc;
+  letter-spacing: 0.01em;
 }
 
-#sideNav {
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* Top navigation — Deep Space Blue bar */
+#topNav {
+  background-color: #023047;
+  border-bottom: 3px solid #219ebc;
+  box-shadow: 0 2px 12px rgba(2, 48, 71, 0.4);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-#sideNav .navbar-nav .nav-item .nav-link {
-  font-weight: 800;
-  letter-spacing: 0.05rem;
-  text-transform: uppercase;
+#topNav .navbar-brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-#sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
+#topNav .navbar-brand:hover {
+  color: #ffb703;
 }
 
-@media (min-width: 992px) {
-  #sideNav {
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 17rem;
-    height: 100vh;
-  }
-
-  #sideNav .navbar-brand {
-    display: flex;
-    margin: auto auto 0;
-    padding: 0.5rem;
-  }
-
-  #sideNav .navbar-brand .img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
-  }
-
-  #sideNav .navbar-collapse {
-    display: flex;
-    align-items: flex-start;
-    flex-grow: 0;
-    width: 100%;
-    margin-bottom: auto;
-  }
-
-  #sideNav .navbar-collapse .navbar-nav {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  #sideNav .navbar-collapse .navbar-nav .nav-item {
-    display: block;
-  }
-
-  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
-    display: block;
-  }
+#topNav .nav-link {
+  color: #8ecae6;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  padding: 1rem 0.85rem;
+  transition: color 0.2s ease;
 }
 
+#topNav .nav-link:hover,
+#topNav .nav-link:focus {
+  color: #ffb703;
+}
+
+#topNav .navbar-toggler {
+  border-color: #219ebc;
+}
+
+#topNav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238ecae6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* .text-primary → Tiger Orange for dates, GPA, key highlights */
+.text-primary {
+  color: #fb8500 !important;
+}
+
+/* Main content container */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Profile photo */
+.img-profile {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border: 3px solid #219ebc;
+  box-shadow: 0 0 0 4px rgba(142, 202, 230, 0.3);
+  flex-shrink: 0;
+}
+
+/* Social icons — brand colors, Tiger Orange on hover */
 .social-icons .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
-  width: 3.5rem;
-  background-color: #495057;
+  height: 2.75rem;
+  width: 2.75rem;
   color: #fff;
   border-radius: 100%;
-  font-size: 1.5rem;
-  margin-right: 1.5rem;
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
+/* LinkedIn */
+.social-icons .social-icon:nth-child(1) { background-color: #0077B5; }
+/* GitHub */
+.social-icons .social-icon:nth-child(2) { background-color: #24292e; }
+/* Google Scholar */
+.social-icons .social-icon:nth-child(3) { background-color: #4285F4; }
 
 .social-icons .social-icon:last-child {
   margin-right: 0;
 }
 
 .social-icons .social-icon:hover {
-  background-color: #bd5d38;
+  background-color: #fb8500;
+  transform: translateY(-2px);
 }
 
 .dev-icons {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  color: #219ebc;
 }
 
+hr {
+  border-color: #8ecae6;
+  opacity: 0.4;
+}
+
+/* Education — toned-down, neutral palette (h3 keeps global Blue Green) */
+#education .subheading {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+#education .text-primary {
+  color: #555 !important;
+  font-weight: 500;
+}
+
+/* Awards list — extra breathing room between icon and text */
+.awards-list {
+  padding-left: 3rem;
+}
+
+.awards-list .fa-li {
+  left: -3rem;
+  width: 2rem;
+  text-align: center;
+}
+
+/* Sections */
 section.resume-section {
-  display: flex;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  max-width: 75rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 section.resume-section .resume-section-content {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   section.resume-section {
-    min-height: 100vh;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 }
 
-@media (min-width: 992px) {
-  section.resume-section {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
+/* Compact vertical rhythm */
+.resume-section-content h2.mb-5,
+.resume-section-content h2.mb-4 {
+  margin-bottom: 0.75rem !important;
+}
+
+.resume-section-content .mb-5 {
+  margin-bottom: 1rem !important;
+}
+
+.resume-section-content .mb-4 {
+  margin-bottom: 0.6rem !important;
+}
+
+.resume-section-content .mb-3 {
+  margin-bottom: 0.4rem !important;
+}
+
+.resume-section-content .mb-2 {
+  margin-bottom: 0.3rem !important;
+}
+
+.resume-section-content .mb-1 {
+  margin-bottom: 0.2rem !important;
+}
+
+/* About — slightly more room for the intro block */
+#about .lead.mb-4 {
+  margin-bottom: 0.85rem !important;
+}
+
+#about .d-flex.mb-4 {
+  margin-bottom: 0.85rem !important;
 }

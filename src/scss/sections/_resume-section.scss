@@ -1,31 +1,32 @@
-// 
+//
 // Sections
-// 
+//
+
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.img-profile {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border: 3px solid #e9ecef;
+    flex-shrink: 0;
+}
 
 section.resume-section {
-    display: flex;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    max-width: 75rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 
     .resume-section-content {
         width: 100%;
     }
 }
 
-@include media-breakpoint-up(md) {
-    section.resume-section {
-        min-height: 100vh;
-    }
-}
-
 @include media-breakpoint-up(lg) {
     section.resume-section {
-        padding-left: 3rem;
-        padding-right: 3rem;
         padding-top: 5rem;
         padding-bottom: 5rem;
     }

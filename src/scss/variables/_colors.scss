@@ -1,15 +1,22 @@
-// 
-// Colors
-// 
+//
+// Color Palette — "Ocean to Flame"
+//
+// Sky Blue (Light)   #8ecae6  — airy, uplifting, clear sky
+// Blue Green         #219ebc  — dynamic, oceanic, vibrant
+// Deep Space Blue    #023047  — cosmos, ambition, authority
+// Amber Flame        #ffb703  — golden intensity, bold expression
+// Tiger Orange       #fb8500  — playful energy, magnetic charisma
+//
 
-// Pre-state grayscale colors used in other variables
+$sky-blue:        #8ecae6;
+$blue-green:      #219ebc;
+$deep-space:      #023047;
+$amber-flame:     #ffb703;
+$tiger-orange:    #fb8500;
 
 $gray-800: #343a40;
 
-// Override Bootstrap color system
-
-$orange: #bd5d38;
-
-// Override Bootstrap default state colors
-
-$primary: $orange;
+// Bootstrap overrides
+$primary:           $amber-flame;
+$link-color:        $blue-green;
+$link-hover-color:  $deep-space;
