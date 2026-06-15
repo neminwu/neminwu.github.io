@@ -2,113 +2,124 @@
 * Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
 * Copyright 2013-2023 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+*
+* Multi-page navigation: the navbar is generated from a single NAV config so
+* every subpage shares one source of truth. Dropdown sub-items link directly
+* to "<page>#<section>" so each sub-heading opens that part of its tab.
 */
-//
-// Scripts
-//
+
+// ── Single source of truth for the whole site's navigation ──────────
+const NAV = [
+    { label: 'About', page: 'index.html' },
+    {
+        label: 'Experience', page: 'experience.html',
+        children: [
+            { label: 'Education', hash: 'education' },
+            { label: 'Teaching Experience', hash: 'teaching' },
+            { label: 'Industry Experience', hash: 'industry' },
+            { label: 'Footprint', hash: 'footprint' },
+        ]
+    },
+    {
+        label: 'Research', page: 'research.html',
+        children: [
+            { label: 'Selected Publications', hash: 'selected-publications' },
+            { label: 'Manuscripts', hash: 'manuscripts' },
+            { label: 'Presentations & Talks', hash: 'presentations' },
+        ]
+    },
+    { label: 'Awards', page: 'awards.html' },
+    { label: 'Passions', page: 'interests.html' },
+];
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    // ── Dropdown menus (manual) ──────────────────────────────────
-    // Wired up FIRST and with no dependency on Bootstrap's JS, so even if
-    // the Bootstrap CDN fails to load the Experience / Research sub-menus
-    // still expand. Clicking a toggle adds `.show` -> CSS reveals the menu.
-    const closeAllDropdowns = () => {
-        document.querySelectorAll('#topNav .dropdown-menu.show').forEach(m => {
-            m.classList.remove('show');
-            const t = m.closest('.nav-item')?.querySelector('.dropdown-toggle');
-            if (t) t.setAttribute('aria-expanded', 'false');
-        });
-    };
+    // ── Build the navbar into #navInner ─────────────────────────────
+    const inner = document.getElementById('navInner');
+    if (inner) {
+        const current = (document.body.dataset.page || 'index.html');
 
-    // ── Auto-build sub-items from each section's <h3> sub-headings ──
-    // The menu for "Experience" / "Research" is generated from the real
-    // sub-headings inside #experience / #publications, so it always stays
-    // in sync with the page and needs no manual <li> maintenance.
-    const slugify = s => s.toLowerCase().trim()
-        .replace(/&/g, ' and ')
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
+        const ul = document.createElement('ul');
+        ul.className = 'navbar-nav ms-auto';
 
-    document.querySelectorAll('#topNav .nav-item.dropdown').forEach(item => {
-        const toggle = item.querySelector('.dropdown-toggle');
-        const menu   = item.querySelector('.dropdown-menu');
-        if (!toggle || !menu) return;
-
-        const sel = toggle.getAttribute('href');
-        const section = (sel && sel.charAt(0) === '#') ? document.querySelector(sel) : null;
-        const headings = section ? section.querySelectorAll('h3') : [];
-        if (!headings.length) return;
-
-        menu.innerHTML = '';                       // drop hardcoded items (incl. Overview)
-        headings.forEach(h => {
-            const text = h.textContent.trim();
-            // scroll target: heading's own id > its container's id > generated slug
-            let id = h.id || (h.parentElement && h.parentElement.id) || '';
-            if (!id) { id = slugify(text); h.id = id; }
+        NAV.forEach(item => {
             const li = document.createElement('li');
-            const a  = document.createElement('a');
-            a.className = 'dropdown-item js-scroll-trigger';
-            a.href = '#' + id;
-            a.textContent = text;
-            a.addEventListener('click', () => closeAllDropdowns());
-            li.appendChild(a);
-            menu.appendChild(li);
-        });
-    });
+            const isActive = item.page === current;
 
-    document.querySelectorAll('#topNav .nav-item.dropdown').forEach(item => {
-        const toggle = item.querySelector('.dropdown-toggle');
-        const menu   = item.querySelector('.dropdown-menu');
-        if (!toggle || !menu) return;
+            if (item.children && item.children.length) {
+                li.className = 'nav-item dropdown';
+                const a = document.createElement('a');
+                a.className = 'nav-link dropdown-toggle' + (isActive ? ' active' : '');
+                a.href = item.page;
+                a.textContent = item.label;
+                li.appendChild(a);
 
-        toggle.addEventListener('click', e => {
-            e.preventDefault();
-            e.stopPropagation();
-            const isOpen = menu.classList.contains('show');
-            closeAllDropdowns();              // collapse any other open menu
-            if (!isOpen) {
-                menu.classList.add('show');
-                toggle.setAttribute('aria-expanded', 'true');
+                const menu = document.createElement('ul');
+                menu.className = 'dropdown-menu';
+                item.children.forEach(c => {
+                    const cli = document.createElement('li');
+                    const ca = document.createElement('a');
+                    ca.className = 'dropdown-item';
+                    ca.href = item.page + '#' + c.hash;
+                    ca.textContent = c.label;
+                    cli.appendChild(ca);
+                    menu.appendChild(cli);
+                });
+                li.appendChild(menu);
+            } else {
+                li.className = 'nav-item';
+                const a = document.createElement('a');
+                a.className = 'nav-link' + (isActive ? ' active' : '');
+                a.href = item.page;
+                a.textContent = item.label;
+                li.appendChild(a);
             }
+            ul.appendChild(li);
         });
-    });
 
-    // Close open dropdowns when clicking anywhere outside the navbar
-    document.addEventListener('click', e => {
-        if (!e.target.closest('#topNav')) closeAllDropdowns();
-    });
-
-    // ── Bootstrap-powered extras (guarded) ───────────────────────
-    // Scrollspy + the mobile collapse are nice-to-haves; wrap them so a
-    // missing/blocked Bootstrap bundle can never stop the code above.
-    const hasBootstrap = typeof bootstrap !== 'undefined';
-
-    if (hasBootstrap && document.body.querySelector('#topNav')) {
-        try {
-            new bootstrap.ScrollSpy(document.body, {
-                target: '#topNav',
-                rootMargin: '0px 0px -40%',
-            });
-        } catch (err) { /* non-critical */ }
+        inner.innerHTML =
+            '<a class="navbar-brand" href="index.html">Nemin Wu</a>' +
+            '<button class="navbar-toggler" type="button" ' +
+            'aria-controls="navbarResponsive" aria-expanded="false" ' +
+            'aria-label="Toggle navigation">' +
+            '<span class="navbar-toggler-icon"></span></button>' +
+            '<div class="collapse navbar-collapse" id="navbarResponsive"></div>';
+        inner.querySelector('#navbarResponsive').appendChild(ul);
     }
 
-    const navbarCollapseEl = document.body.querySelector('#navbarResponsive');
-    const navbarToggler    = document.body.querySelector('.navbar-toggler');
-    const bsCollapse = (hasBootstrap && navbarCollapseEl)
-        ? new bootstrap.Collapse(navbarCollapseEl, { toggle: false })
-        : null;
+    // ── Mobile menu toggle ──────────────────────────────────────────
+    // Handled manually (no dependency on Bootstrap's JS) so the hamburger
+    // always works on the dynamically-built navbar. Toggling `.show` is all
+    // Bootstrap's collapse CSS needs to reveal the menu.
+    const navbarCollapseEl = document.getElementById('navbarResponsive');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
-    // Close the mobile navbar when a plain (non-dropdown) nav-link is clicked
-    document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (link.classList.contains('dropdown-toggle')) return;
-            if (bsCollapse && navbarToggler &&
-                window.getComputedStyle(navbarToggler).display !== 'none') {
-                bsCollapse.hide();
-            }
+    const isMobile = () => navbarToggler &&
+        window.getComputedStyle(navbarToggler).display !== 'none';
+    const closeMenu = () => {
+        if (navbarCollapseEl) navbarCollapseEl.classList.remove('show');
+        if (navbarToggler) navbarToggler.setAttribute('aria-expanded', 'false');
+    };
+
+    if (navbarToggler && navbarCollapseEl) {
+        navbarToggler.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const open = navbarCollapseEl.classList.toggle('show');
+            navbarToggler.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
+    }
+
+    // Desktop: hover reveals the dropdown (CSS); a click on the toggle
+    // navigates to the tab's own page. Mobile: every sub-item is shown in
+    // the open menu, so tapping any link closes the menu and navigates.
+    document.querySelectorAll('#navbarResponsive .nav-link, #navbarResponsive .dropdown-item').forEach(link => {
+        link.addEventListener('click', () => { if (isMobile()) closeMenu(); });
+    });
+
+    // Tap outside the navbar closes the open mobile menu
+    document.addEventListener('click', e => {
+        if (isMobile() && !e.target.closest('#topNav')) closeMenu();
     });
 
 });

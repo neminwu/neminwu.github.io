@@ -1,0 +1,30 @@
+/* Multi-page navbar tweaks: hover dropdowns on desktop, open submenus on mobile */
+
+/* Desktop: reveal the submenu on hover so the toggle itself can navigate */
+@media (min-width: 992px) {
+    #topNav .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+    #topNav .dropdown-toggle::after {
+        margin-left: .35em;
+    }
+}
+
+/* Mobile: the collapsed menu shows every sub-item inline */
+@media (max-width: 991.98px) {
+    #topNav .dropdown-menu {
+        display: block;
+        position: static;
+        float: none;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        padding: 0 0 .25rem 1rem;
+    }
+}
+
+/* Active tab highlight */
+#topNav .nav-link.active {
+    font-weight: 700;
+}
