@@ -29,9 +29,15 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Publications</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#experience" data-bs-toggle="dropdown" aria-expanded="false">Experience</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item js-scroll-trigger" href="#experience">Overview</a></li>
+                            <li><a class="dropdown-item js-scroll-trigger" href="#education">Education</a></li>
+                            <li><a class="dropdown-item js-scroll-trigger" href="#footprint">Footprint</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">Research</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
                 </ul>
@@ -49,7 +55,7 @@
                     <img class="img-profile rounded-circle me-md-4 mb-3 mb-md-0"
                         src="img/neggplant.jpg" alt="Nemin Wu" />
                     <div>
-                        <h1 class="mb-1">Nemin <span class="text-primary">Wu</span></h1>
+                        <h1 class="mb-1">Nemin Wu</h1>
                         <div class="subheading mb-1">University of Georgia · Athens, GA 30602</div>
                         <a href="mailto:Nemin.Wu[at]uga.edu">Nemin.Wu[at]uga.edu</a>
                     </div>
@@ -74,59 +80,10 @@
 
         <hr class="m-0" />
 
-        <!-- Education-->
-        <section class="resume-section" id="education">
-            <div class="resume-section-content">
-                <h2 class="mb-4">Education</h2>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-1">Ph.D. in Geography</div>
-                    </div>
-                    <div class="flex-shrink-0 text-md-end">
-                        <span class="text-primary">GPA: 4.0/4.0</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-1">M.S. in Artificial Intelligence</div>
-                    </div>
-                    <div class="flex-shrink-0 text-md-end">
-                        <span class="text-primary">GPA: 4.0/4.0</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-1">University of Georgia</h3>
-                        <div class="subheading mb-1">GIScience Certificate</div>
-                    </div>
-                    <div class="flex-shrink-0 text-md-end">
-                        <span class="text-primary">GPA: 4.0/4.0</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-1">Wuhan University</h3>
-                        <div class="subheading mb-1">BSc. in Geographic Information Science</div>
-                    </div>
-                    <div class="flex-shrink-0 text-md-end">
-                        <span class="text-primary">GPA: 3.8/4.0</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="m-0" />
-
         <!-- Publications-->
         <section class="resume-section" id="publications">
             <div class="resume-section-content">
-                <h2 class="mb-5">Publications</h2>
+                <h2 class="mb-5">Research</h2>
 
                 <div class="resume-content mb-5">
                     <h3 class="mb-3">Selected Publications</h3>
@@ -176,7 +133,7 @@
                 </div>
 
                 <div class="resume-content mb-5">
-                    <h3 class="mb-3">Peer-reviewed Conference Presentation</h3>
+                    <h3 class="mb-3">Presentations and Talks</h3>
                     <div class="mb-2">[6] <b>Wu, N.</b>, Mu, L., Tiwari, B. B., Thapa, J. R.*, Khan, M., (2024) "Urban-Rural
                         Disparities of Trauma Care Accessibility in Georgia". place at the 10th Annual Health Services Research Day
                         at Emory University, Atlanta, U.S. <font color="bs-yellow"><i>(The 1st prize of Poster
@@ -206,6 +163,49 @@
         <section class="resume-section" id="experience">
             <div class="resume-section-content">
                 <h2 class="mb-5">Experience</h2>
+
+                <!-- Education subsection -->
+                <div id="education" class="resume-content mb-5">
+                    <h3 class="mb-3">Education</h3>
+                    <div class="edu-entries">
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
+                            <div class="flex-grow-1">
+                                <div class="edu-school">University of Georgia</div>
+                                <div class="edu-degree">Ph.D. in Geography</div>
+                            </div>
+                            <div class="flex-shrink-0 text-md-end">
+                                <span class="edu-gpa">GPA: 4.0/4.0</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
+                            <div class="flex-grow-1">
+                                <div class="edu-school">University of Georgia</div>
+                                <div class="edu-degree">M.S. in Artificial Intelligence</div>
+                            </div>
+                            <div class="flex-shrink-0 text-md-end">
+                                <span class="edu-gpa">GPA: 4.0/4.0</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
+                            <div class="flex-grow-1">
+                                <div class="edu-school">University of Georgia</div>
+                                <div class="edu-degree">GIScience Certificate</div>
+                            </div>
+                            <div class="flex-shrink-0 text-md-end">
+                                <span class="edu-gpa">GPA: 4.0/4.0</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row justify-content-between">
+                            <div class="flex-grow-1">
+                                <div class="edu-school">Wuhan University</div>
+                                <div class="edu-degree">BSc. in Geographic Information Science</div>
+                            </div>
+                            <div class="flex-shrink-0 text-md-end">
+                                <span class="edu-gpa">GPA: 3.8/4.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="resume-content mb-5">
                     <h3 class="mb-3">Teaching Experience</h3>
@@ -261,24 +261,19 @@
                     </div>
                 </div>
 
-                <!-- Experience Map & Timeline -->
-                <div class="map-section">
-                    <button class="map-toggle-btn" id="mapToggleBtn" onclick="toggleExpMap()">
-                        <span><i class="fas fa-globe-americas me-2"></i>Experience Map &amp; Timeline</span>
-                        <i class="fas fa-chevron-down" id="mapToggleIcon"></i>
-                    </button>
-                    <div class="map-panel" id="mapPanel">
-                        <div class="map-layout">
-                            <div class="map-timeline" id="mapTimeline">
-                                <div class="tl-label">Journey</div>
-                            </div>
-                            <div class="map-right">
-                                <div id="experienceMap"></div>
-                                <div class="map-legend">
-                                    <div class="legend-item"><span class="legend-dot" style="background:#8ecae6"></span>Teaching</div>
-                                    <div class="legend-item"><span class="legend-dot" style="background:#219ebc"></span>Research</div>
-                                    <div class="legend-item"><span class="legend-dot" style="background:#ffb703"></span>Internship</div>
-                                </div>
+                <!-- Footprint -->
+                <div id="footprint" class="map-section">
+                    <h3 class="mb-2">Footprint</h3>
+                    <div class="map-layout">
+                        <div class="map-timeline" id="mapTimeline">
+                            <div class="tl-label">Journey</div>
+                        </div>
+                        <div class="map-right">
+                            <div id="experienceMap"></div>
+                            <div class="map-legend">
+                                <div class="legend-item"><span class="legend-dot" style="background:#8ecae6"></span>Teaching</div>
+                                <div class="legend-item"><span class="legend-dot" style="background:#219ebc"></span>Research</div>
+                                <div class="legend-item"><span class="legend-dot" style="background:#ffb703"></span>Internship</div>
                             </div>
                         </div>
                     </div>
@@ -372,31 +367,20 @@
     <script src="js/scripts.js"></script>
 
     <script>
-    // ── Experience Map ──────────────────────────────────────────────
+    // ── Experience Footprint Map ─────────────────────────────────────
+    // Most recent first
     const EXP_DATA = [
         {
-            id: 'wuhan-bgs',
-            role: 'Technical Engineer',
-            name: 'Wuhan BGS Technology Co., Ltd.',
-            org: 'Wuhan, China',
-            period: 'Jul – Sep 2017',
-            latlng: [30.5928, 114.3055],
-            color: '#fb8500',
+            id: 'cvig',
+            role: 'Research Assistant',
+            name: 'Carl Vinson Institute of Government',
+            org: 'Athens, GA, US',
+            period: 'Jun 2022 – Feb 2024',
+            latlng: [33.9660, -83.3710],
+            color: '#219ebc',
             textColor: '#fff',
             photo: null,
-            desc: 'Software development & hardware integration for Call-taking and Dispatch System. Verified spatial data and built upload tools. <strong>🏆 Best Intern of the Year.</strong>'
-        },
-        {
-            id: 'beijing-bgs',
-            role: 'Technical Engineer',
-            name: 'Beijing BGS Technology Co., Ltd.',
-            org: 'Beijing, China',
-            period: 'Jun – Sep 2018',
-            latlng: [39.9042, 116.4074],
-            color: '#ffb703',
-            textColor: '#023047',
-            photo: null,
-            desc: 'System design for Public Transportation Safety Management System; designed spatial database and published metadata management module.'
+            desc: 'Developed automatic CAMA data cleaning system. Improved tools for communities addressing heirs property issues in rural and underserved populations.'
         },
         {
             id: 'uga-teach',
@@ -411,32 +395,34 @@
             desc: 'Taught Introduction to GIS, Programming in GIS, and Geoscience for Health & Environment across 4 semesters in the Department of Geography.'
         },
         {
-            id: 'cvig',
-            role: 'Research Assistant',
-            name: 'Carl Vinson Institute of Government',
-            org: 'Athens, GA, US',
-            period: 'Jun 2022 – Feb 2024',
-            latlng: [33.9660, -83.3710],
-            color: '#219ebc',
+            id: 'beijing-bgs',
+            role: 'Technical Engineer',
+            name: 'Beijing BGS Technology Co., Ltd.',
+            org: 'Beijing, China',
+            period: 'Jun – Sep 2018',
+            latlng: [39.9042, 116.4074],
+            color: '#ffb703',
+            textColor: '#023047',
+            photo: null,
+            desc: 'System design for Public Transportation Safety Management System; designed spatial database and published metadata management module.'
+        },
+        {
+            id: 'wuhan-bgs',
+            role: 'Technical Engineer',
+            name: 'Wuhan BGS Technology Co., Ltd.',
+            org: 'Wuhan, China',
+            period: 'Jul – Sep 2017',
+            latlng: [30.5928, 114.3055],
+            color: '#fb8500',
             textColor: '#fff',
             photo: null,
-            desc: 'Developed automatic CAMA data cleaning system. Improved tools for communities addressing heirs property issues in rural and underserved populations.'
+            desc: 'Software development & hardware integration for Call-taking and Dispatch System. Verified spatial data and built upload tools. <strong>🏆 Best Intern of the Year.</strong>'
         }
     ];
 
-    let expMap = null, mapReady = false;
-
-    function toggleExpMap() {
-        const panel = document.getElementById('mapPanel');
-        const icon  = document.getElementById('mapToggleIcon');
-        const open  = panel.classList.toggle('open');
-        icon.classList.toggle('rotated', open);
-        if (open && !mapReady) { setTimeout(initExpMap, 80); }
-        else if (open)         { setTimeout(() => expMap.invalidateSize(), 80); }
-    }
+    let expMap = null;
 
     function initExpMap() {
-        mapReady = true;
         expMap = L.map('experienceMap', { zoomControl: true, scrollWheelZoom: false });
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -474,6 +460,7 @@
             markers[e.id] = m;
         });
 
+        expMap.once('moveend', () => expMap.zoomIn(2));
         expMap.fitBounds(bounds, { padding: [40, 40] });
         buildTimeline(markers);
     }
@@ -502,6 +489,8 @@
             tl.appendChild(entry);
         });
     }
+
+    document.addEventListener('DOMContentLoaded', initExpMap);
     </script>
 </body>
 

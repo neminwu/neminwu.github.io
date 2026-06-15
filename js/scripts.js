@@ -25,6 +25,8 @@ window.addEventListener('DOMContentLoaded', event => {
     );
     responsiveNavItems.map(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
+            // Skip collapsing the navbar when clicking a dropdown toggle
+            if (responsiveNavItem.classList.contains('dropdown-toggle')) return;
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
                 navbarToggler.click();
             }

@@ -12664,7 +12664,7 @@ p.lead {
 /* Top navigation — Deep Space Blue bar */
 #topNav {
   background-color: #023047;
-  border-bottom: 3px solid #219ebc;
+  border-bottom: 3px solid #ffb703;
   box-shadow: 0 2px 12px rgba(2, 48, 71, 0.4);
   padding-top: 0;
   padding-bottom: 0;
@@ -12723,8 +12723,8 @@ p.lead {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
-  border: 3px solid #219ebc;
-  box-shadow: 0 0 0 4px rgba(142, 202, 230, 0.3);
+  border: 3px solid #ffb703;
+  box-shadow: 0 0 0 4px rgba(255, 183, 3, 0.25);
   flex-shrink: 0;
 }
 
@@ -12769,15 +12769,24 @@ hr {
   opacity: 0.4;
 }
 
-/* Education — toned-down, neutral palette (h3 keeps global Blue Green) */
-#education .subheading {
-  color: #6c757d;
-  font-size: 1rem;
+/* Education subsection inside Experience */
+.edu-school {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #023047;
 }
 
-#education .text-primary {
-  color: #555 !important;
+.edu-degree {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-top: 0.1rem;
+}
+
+.edu-gpa {
+  font-size: 0.9rem;
+  color: #888;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 /* Awards list — extra breathing room between icon and text */
@@ -12848,46 +12857,30 @@ section.resume-section .resume-section-content {
   margin-top: 1.1rem;
 }
 
-.map-toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: linear-gradient(120deg, #023047 0%, #219ebc 100%);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 0.7rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+/* Nav dropdown styled to match dark navbar */
+#topNav .dropdown-menu {
+  background-color: #012535;
+  border: 1px solid #219ebc;
+  border-radius: 8px;
+  padding: 0.3rem 0;
+  min-width: 140px;
+  margin-top: 0;
+  z-index: 9999;
+}
+
+#topNav .dropdown-item {
+  color: #8ecae6;
+  font-size: 0.88rem;
+  font-weight: 500;
   font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  box-shadow: 0 3px 14px rgba(2, 48, 71, 0.22);
-  transition: box-shadow 0.2s, opacity 0.2s;
+  padding: 0.45rem 1rem;
+  transition: color 0.2s, background 0.2s;
 }
 
-.map-toggle-btn:hover {
-  opacity: 0.92;
-  box-shadow: 0 5px 20px rgba(2, 48, 71, 0.32);
-}
-
-.map-toggle-btn .fa-chevron-down {
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.map-toggle-btn .fa-chevron-down.rotated {
-  transform: rotate(180deg);
-}
-
-.map-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.map-panel.open {
-  max-height: 560px;
+#topNav .dropdown-item:hover,
+#topNav .dropdown-item:focus {
+  color: #ffb703;
+  background: rgba(142, 202, 230, 0.08);
 }
 
 .map-layout {
@@ -13153,6 +13146,5 @@ section.resume-section .resume-section-content {
     padding: 0.75rem;
   }
   .tl-line { display: none; }
-  .map-panel.open { max-height: 680px; }
   #experienceMap { height: 320px; }
 }
