@@ -208,7 +208,7 @@
                 <h2 class="mb-5">Experience</h2>
 
                 <div class="resume-content mb-5">
-                    <h3 class="mb-3">Teaching</h3>
+                    <h3 class="mb-3">Teaching Experience</h3>
                     <div class="mb-1">[4] 2023S Geoscience for Health and Environment, Lab Instructor, Department of Geography, UGA</div>
                     <div class="mb-1">[3] 2022F Programming in GIS, Lab Instructor, Department of Geography, UGA</div>
                     <div class="mb-1">[2] 2022S Introduction to GIS, Lab Instructor, Department of Geography, UGA</div>
@@ -216,7 +216,7 @@
                 </div>
 
                 <div class="resume-content mb-5">
-                    <h3 class="mb-3">Internship</h3>
+                    <h3 class="mb-3">Industry Experience</h3>
 
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
                         <div class="flex-grow-1">
@@ -366,8 +366,143 @@
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
+    <script>
+    // ── Experience Map ──────────────────────────────────────────────
+    const EXP_DATA = [
+        {
+            id: 'wuhan-bgs',
+            role: 'Technical Engineer',
+            name: 'Wuhan BGS Technology Co., Ltd.',
+            org: 'Wuhan, China',
+            period: 'Jul – Sep 2017',
+            latlng: [30.5928, 114.3055],
+            color: '#fb8500',
+            textColor: '#fff',
+            photo: null,
+            desc: 'Software development & hardware integration for Call-taking and Dispatch System. Verified spatial data and built upload tools. <strong>🏆 Best Intern of the Year.</strong>'
+        },
+        {
+            id: 'beijing-bgs',
+            role: 'Technical Engineer',
+            name: 'Beijing BGS Technology Co., Ltd.',
+            org: 'Beijing, China',
+            period: 'Jun – Sep 2018',
+            latlng: [39.9042, 116.4074],
+            color: '#ffb703',
+            textColor: '#023047',
+            photo: null,
+            desc: 'System design for Public Transportation Safety Management System; designed spatial database and published metadata management module.'
+        },
+        {
+            id: 'uga-teach',
+            role: 'Lab Instructor',
+            name: 'University of Georgia',
+            org: 'Athens, GA, US',
+            period: '2021 – 2023',
+            latlng: [33.9480, -83.3775],
+            color: '#8ecae6',
+            textColor: '#023047',
+            photo: null,
+            desc: 'Taught Introduction to GIS, Programming in GIS, and Geoscience for Health & Environment across 4 semesters in the Department of Geography.'
+        },
+        {
+            id: 'cvig',
+            role: 'Research Assistant',
+            name: 'Carl Vinson Institute of Government',
+            org: 'Athens, GA, US',
+            period: 'Jun 2022 – Feb 2024',
+            latlng: [33.9660, -83.3710],
+            color: '#219ebc',
+            textColor: '#fff',
+            photo: null,
+            desc: 'Developed automatic CAMA data cleaning system. Improved tools for communities addressing heirs property issues in rural and underserved populations.'
+        }
+    ];
+
+    let expMap = null, mapReady = false;
+
+    function toggleExpMap() {
+        const panel = document.getElementById('mapPanel');
+        const icon  = document.getElementById('mapToggleIcon');
+        const open  = panel.classList.toggle('open');
+        icon.classList.toggle('rotated', open);
+        if (open && !mapReady) { setTimeout(initExpMap, 80); }
+        else if (open)         { setTimeout(() => expMap.invalidateSize(), 80); }
+    }
+
+    function initExpMap() {
+        mapReady = true;
+        expMap = L.map('experienceMap', { zoomControl: true, scrollWheelZoom: false });
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+            subdomains: 'abcd', maxZoom: 19
+        }).addTo(expMap);
+
+        const bounds = [], markers = {};
+
+        EXP_DATA.forEach((e, i) => {
+            bounds.push(e.latlng);
+
+            const pinHtml = `<div class="exp-pin" style="--pc:${e.color};--tc:${e.textColor}">${i + 1}</div>`;
+            const icon = L.divIcon({ className: '', html: pinHtml, iconSize: [34, 34], iconAnchor: [17, 17], popupAnchor: [0, -22] });
+
+            const photoEl = e.photo
+                ? `<img src="${e.photo}" class="popup-photo" alt="${e.name}">`
+                : `<div class="popup-photo-placeholder" style="background:linear-gradient(135deg,${e.color}88,${e.color})"><i class="fas fa-camera"></i><span>Add photo</span></div>`;
+
+            const popupHtml = `
+                <div class="exp-popup">
+                    ${photoEl}
+                    <div class="popup-body">
+                        <div class="popup-period">${e.period}</div>
+                        <div class="popup-role">${e.role}</div>
+                        <div class="popup-name">${e.name}</div>
+                        <div class="popup-loc"><i class="fas fa-map-marker-alt" style="color:#fb8500"></i> ${e.org}</div>
+                        <div class="popup-desc">${e.desc}</div>
+                    </div>
+                </div>`;
+
+            const m = L.marker(e.latlng, { icon })
+                .addTo(expMap)
+                .bindPopup(popupHtml, { maxWidth: 280, className: 'exp-popup-wrap' });
+            markers[e.id] = m;
+        });
+
+        expMap.fitBounds(bounds, { padding: [40, 40] });
+        buildTimeline(markers);
+    }
+
+    function buildTimeline(markers) {
+        const tl = document.getElementById('mapTimeline');
+        EXP_DATA.forEach((e, i) => {
+            const isLast = i === EXP_DATA.length - 1;
+            const entry = document.createElement('div');
+            entry.className = 'tl-entry';
+            entry.id = 'tl-' + e.id;
+            entry.innerHTML = `
+                <div class="tl-dot-col">
+                    <div class="tl-dot" style="background:${e.color}"></div>
+                    ${!isLast ? '<div class="tl-line"></div>' : ''}
+                </div>
+                <div class="tl-info">
+                    <div class="tl-period">${e.period}</div>
+                    <div class="tl-role">${e.role}</div>
+                    <div class="tl-org">${e.name}</div>
+                </div>`;
+            entry.addEventListener('click', () => {
+                expMap.setView(e.latlng, 12, { animate: true, duration: 0.9 });
+                setTimeout(() => markers[e.id].openPopup(), 700);
+            });
+            tl.appendChild(entry);
+        });
+    }
+    </script>
 </body>
 
 </html>
