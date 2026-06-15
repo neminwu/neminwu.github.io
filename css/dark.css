@@ -1,0 +1,126 @@
+/* ============================================================
+   Dark mode
+   Activated by  html[data-theme="dark"]  (set from scripts.js /
+   the inline anti-flash snippet in each page <head>).
+   The top navbar is already a deep-blue bar in both themes, so
+   these rules mainly re-tint the page body, headings and text.
+   ============================================================ */
+
+/* ── Theme toggle button (visible in both themes) ───────────── */
+.theme-toggle-item {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1.5px solid rgba(142, 202, 230, 0.5);
+  color: #8ecae6;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0;
+  margin-left: 0.6rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease, transform 0.25s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  color: #ffb703;
+  border-color: #ffb703;
+  background: rgba(255, 183, 3, 0.12);
+  transform: rotate(18deg);
+  outline: none;
+}
+
+@media (max-width: 991.98px) {
+  /* In the collapsed mobile menu, sit it inline with the links */
+  .theme-toggle { margin: 0.4rem 0 0.2rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+  .theme-toggle:hover, .theme-toggle:focus { transform: none; }
+}
+
+/* ------------------------------------------------------------------
+   Palette — ONLY the existing site theme colors are used below:
+     #011a26  deepest navy  → page background (darkest layer)
+     #012535  deep navy     → already the timeline/dropdown panel color
+     #023047  navbar blue   → stays the elevated top bar (lighter than page)
+     #8ecae6  light blue    → primary headings / accents
+     #219ebc  medium blue   → sub-headings (h3), keeps light-mode hierarchy
+     #ffb703  gold          → hover / highlights
+     #ffffff  white         → primary body text (same as the timeline uses)
+   Text-on-dark follows the site's own timeline pattern: white for primary
+   text, light-blue for labels, dimmed white (rgba) for muted text.
+   ------------------------------------------------------------------ */
+
+/* ── Page background: the page is the DARKEST layer, so the navbar
+      (#023047) now reads as a lighter, elevated bar above it. ──────── */
+html[data-theme="dark"] body {
+  background-color: #011a26;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Headings — distinct hierarchy, mirroring light mode ────────────
+      h1/h2 = light blue (#8ecae6),  h3 = medium blue (#219ebc). ────── */
+html[data-theme="dark"] h1, html[data-theme="dark"] .h1,
+html[data-theme="dark"] h2, html[data-theme="dark"] .h2 {
+  color: #8ecae6;
+}
+
+html[data-theme="dark"] h3, html[data-theme="dark"] .h3 {
+  color: #219ebc;
+}
+
+/* ── Body copy ──────────────────────────────────────────────────── */
+html[data-theme="dark"] p,
+html[data-theme="dark"] li,
+html[data-theme="dark"] .resume-content {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] p.lead {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme="dark"] .subheading {
+  color: #8ecae6;
+}
+
+html[data-theme="dark"] .text-muted {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ── Links (nav links keep their own #topNav styling) ───────────── */
+html[data-theme="dark"] a {
+  color: #8ecae6;
+}
+
+html[data-theme="dark"] a:hover {
+  color: #ffb703;
+}
+
+/* ── Education block — white school, dimmed degree/GPA (timeline style) ── */
+html[data-theme="dark"] .edu-school { color: #ffffff; }
+html[data-theme="dark"] .edu-degree { color: rgba(255, 255, 255, 0.6); }
+html[data-theme="dark"] .edu-gpa    { color: rgba(255, 255, 255, 0.5); }
+
+/* ── Dividers — same light-blue rule as light mode, a touch softer ── */
+html[data-theme="dark"] hr {
+  border-color: #8ecae6;
+  opacity: 0.25;
+}
+
+/* ── Profile photo ring — keep the gold, soften its glow on dark ──── */
+html[data-theme="dark"] .img-profile {
+  box-shadow: 0 0 0 4px rgba(255, 183, 3, 0.18);
+}

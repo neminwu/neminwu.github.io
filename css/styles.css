@@ -12876,22 +12876,40 @@ section.resume-section .resume-section-content {
   margin-top: 1.1rem;
 }
 
-/* Nav dropdown — minimal, with a yellow accent bar on the left */
+/* Nav dropdown — minimal dark panel that connects flush to the open tab.
+   No left border: that 3px line pushed the dark fill in by 3px, so the
+   menu's dark blue no longer lined up with the tab's dark blue. With it
+   gone, both the tab background and the menu sit at the same left edge
+   (left: 0 of the shared .nav-item), so their left edges align exactly. */
 #topNav .dropdown-menu {
   background-color: #012535;
   border: none;
-  border-left: 3px solid #ffb703;        /* yellow vertical line */
-  border-radius: 0 0 6px 0;              /* flush top, only bottom-right softened */
+  border-radius: 0 0 6px 0;             /* top flush; bottom-LEFT square so the
+                                           straight yellow line hugs it to the
+                                           bottom, only bottom-right softened */
   padding: 0.35rem 0;
   width: max-content;                    /* auto-fit to the longest sub-heading */
   min-width: 0;
   margin-top: 0;                         /* attached directly under the navbar — no gap */
   z-index: 9999;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  overflow: visible;                     /* let the left accent line sit OUTSIDE the box */
   /* Positioning without Popper.js */
   top: 100%;
   left: 0;
+}
+
+/* Yellow accent line on the OUTSIDE-left of the menu — a straight 3px bar
+   flush against (but not inside) the dark panel, so the dark fill still
+   lines up with the tab above it. No border-radius = no arc. */
+#topNav .dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -3px;
+  width: 3px;
+  background: #ffb703;
 }
 
 /* Cool slide-down + fade when the menu opens */
@@ -12945,7 +12963,21 @@ section.resume-section .resume-section-content {
 }
 
 /* Open dropdown: the tab takes the menu's dark fill so they merge into
-   one connected block, with matching rounded top corners */
+   one connected block, with matching rounded top corners.
+   Desktop opens on HOVER, so the connected look must trigger on hover too —
+   not only on click (aria-expanded). Tab and menu share the exact same
+   #012535 and the same left edge, so they read as one seamless panel. */
+@media (min-width: 992px) {
+  #topNav .nav-item.dropdown:hover > .dropdown-toggle,
+  #topNav .nav-item.dropdown:focus-within > .dropdown-toggle,
+  #topNav .dropdown-toggle[aria-expanded="true"] {
+    color: #ffb703;
+    background: #012535;
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+/* Fallback for any non-desktop case where the menu is opened by click */
 #topNav .dropdown-toggle[aria-expanded="true"] {
   color: #ffb703;
   background: #012535;

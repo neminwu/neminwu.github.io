@@ -13,9 +13,9 @@
     <!-- Leaflet map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css?v=20260615j" rel="stylesheet" />
+    <link href="css/styles.css?v=20260615h" rel="stylesheet" />
     <link href="css/nav.css?v=20260615e" rel="stylesheet" />
-    <link href="css/dark.css?v=20260615b" rel="stylesheet" />
+    <link href="css/dark.css?v=20260615a" rel="stylesheet" />
     <!-- Apply saved theme before paint to avoid a flash of the wrong mode -->
     <script>(function(){try{var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 </head>
@@ -159,7 +159,7 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js?v=20260615g"></script>
+    <script src="js/scripts.js?v=20260615f"></script>
 
     <script>
     // ── Experience Footprint Map ─────────────────────────────────────
