@@ -21,6 +21,43 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // ── Auto-build sub-items from each section's <h3> sub-headings ──
+    // The menu for "Experience" / "Research" is generated from the real
+    // sub-headings inside #experience / #publications, so it always stays
+    // in sync with the page and needs no manual <li> maintenance.
+    const slugify = s => s.toLowerCase().trim()
+        .replace(/&/g, ' and ')
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+
+    document.querySelectorAll('#topNav .nav-item.dropdown').forEach(item => {
+        const toggle = item.querySelector('.dropdown-toggle');
+        const menu   = item.querySelector('.dropdown-menu');
+        if (!toggle || !menu) return;
+
+        const sel = toggle.getAttribute('href');
+        const section = (sel && sel.charAt(0) === '#') ? document.querySelector(sel) : null;
+        const headings = section ? section.querySelectorAll('h3') : [];
+        if (!headings.length) return;
+
+        menu.innerHTML = '';                       // drop hardcoded items (incl. Overview)
+        headings.forEach(h => {
+            const text = h.textContent.trim();
+            // scroll target: heading's own id > its container's id > generated slug
+            let id = h.id || (h.parentElement && h.parentElement.id) || '';
+            if (!id) { id = slugify(text); h.id = id; }
+            const li = document.createElement('li');
+            const a  = document.createElement('a');
+            a.className = 'dropdown-item js-scroll-trigger';
+            a.href = '#' + id;
+            a.textContent = text;
+            a.addEventListener('click', () => closeAllDropdowns());
+            li.appendChild(a);
+            menu.appendChild(li);
+        });
+    });
+
     document.querySelectorAll('#topNav .nav-item.dropdown').forEach(item => {
         const toggle = item.querySelector('.dropdown-toggle');
         const menu   = item.querySelector('.dropdown-menu');

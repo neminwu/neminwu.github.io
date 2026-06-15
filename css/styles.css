@@ -93,6 +93,11 @@
   }
 }
 
+/* Keep anchored sub-headings clear of the fixed navbar when jumped to */
+:root {
+  scroll-padding-top: 68px;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -12925,6 +12930,13 @@ section.resume-section .resume-section-content {
   background: rgba(255, 183, 3, 0.1);
   padding-left: 1.4rem;
   padding-right: 0.8rem;
+}
+
+/* Current sub-item (Scrollspy) — keep the yellow theme, not Bootstrap orange */
+#topNav .dropdown-item.active,
+#topNav .dropdown-item:active {
+  color: #ffb703;
+  background: rgba(255, 183, 3, 0.1);
 }
 
 /* Selected main tab (current section while scrolling) */
