@@ -12871,15 +12871,42 @@ section.resume-section .resume-section-content {
   margin-top: 1.1rem;
 }
 
-/* Nav dropdown styled to match dark navbar */
+/* Nav dropdown — minimal, with a yellow accent bar on the left */
 #topNav .dropdown-menu {
   background-color: #012535;
-  border: 1px solid #219ebc;
-  border-radius: 8px;
-  padding: 0.3rem 0;
-  min-width: 140px;
-  margin-top: 0;
+  border: none;
+  border-left: 3px solid #ffb703;        /* yellow vertical line */
+  border-radius: 0 0 6px 0;              /* flush top, only bottom-right softened */
+  padding: 0.35rem 0;
+  width: max-content;                    /* auto-fit to the longest sub-heading */
+  min-width: 0;
+  margin-top: 0;                         /* attached directly under the navbar — no gap */
   z-index: 9999;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  /* Positioning without Popper.js */
+  top: 100%;
+  left: 0;
+}
+
+/* Cool slide-down + fade when the menu opens */
+#topNav .dropdown-menu.show {
+  animation: navDropIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes navDropIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Caret: points right when closed, rotates down only when open */
+#topNav .dropdown-toggle::after {
+  transition: transform 0.2s ease;
+  transform: rotate(-90deg);
+}
+
+#topNav .dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(0deg);
 }
 
 #topNav .dropdown-item {
@@ -12887,14 +12914,38 @@ section.resume-section .resume-section-content {
   font-size: 0.88rem;
   font-weight: 500;
   font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
-  padding: 0.45rem 1rem;
-  transition: color 0.2s, background 0.2s;
+  padding: 0.5rem 1.1rem;
+  transition: color 0.18s ease, background 0.18s ease, padding 0.18s ease;
 }
 
+/* Indent on hover — left/right padding swap keeps the box width fixed */
 #topNav .dropdown-item:hover,
 #topNav .dropdown-item:focus {
   color: #ffb703;
-  background: rgba(142, 202, 230, 0.08);
+  background: rgba(255, 183, 3, 0.1);
+  padding-left: 1.4rem;
+  padding-right: 0.8rem;
+}
+
+/* Selected main tab (current section while scrolling) */
+#topNav .nav-link.active {
+  color: #ffb703;
+}
+
+/* Open dropdown: the tab takes the menu's dark fill so they merge into
+   one connected block, with matching rounded top corners */
+#topNav .dropdown-toggle[aria-expanded="true"] {
+  color: #ffb703;
+  background: #012535;
+  border-radius: 6px 6px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #topNav .dropdown-menu.show { animation: none; }
+  #topNav .dropdown-toggle::after { transition: none; }
+  #topNav .dropdown-item { transition: color 0.18s ease, background 0.18s ease; }
+  #topNav .dropdown-item:hover,
+  #topNav .dropdown-item:focus { padding-left: 1.1rem; padding-right: 1.1rem; }
 }
 
 .map-layout {
