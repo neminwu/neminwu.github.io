@@ -18,17 +18,26 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
+    // Explicitly initialize Bootstrap Collapse and wire up the toggler
     const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const navbarCollapseEl = document.body.querySelector('#navbarResponsive');
+    let bsCollapse = null;
+    if (navbarCollapseEl) {
+        bsCollapse = new bootstrap.Collapse(navbarCollapseEl, { toggle: false });
+    }
+    if (navbarToggler && bsCollapse) {
+        navbarToggler.addEventListener('click', () => bsCollapse.toggle());
+    }
+
+    // Close navbar when a nav link is clicked (mobile)
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
     responsiveNavItems.map(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
-            // Skip collapsing the navbar when clicking a dropdown toggle
             if (responsiveNavItem.classList.contains('dropdown-toggle')) return;
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+                bsCollapse.hide();
             }
         });
     });
