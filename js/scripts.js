@@ -10,10 +10,10 @@
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
-    if (sideNav) {
+    const topNav = document.body.querySelector('#topNav');
+    if (topNav) {
         new bootstrap.ScrollSpy(document.body, {
-            target: '#sideNav',
+            target: '#topNav',
             rootMargin: '0px 0px -40%',
         });
     };
