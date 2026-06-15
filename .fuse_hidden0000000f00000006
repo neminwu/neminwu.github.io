@@ -7,7 +7,6 @@
     <meta name="description" content="Experience of Nemin Wu — education, teaching, industry roles, and footprint." />
     <meta name="author" content="Nemin Wu" />
     <title>Experience · Nemin Wu</title>
-    <link rel="canonical" href="https://neminwu.github.io/experience.html" />
     <link rel="icon" type="image/x-icon" href="img/nelephant.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -17,7 +16,6 @@
     <link href="css/styles.css?v=20260615j" rel="stylesheet" />
     <link href="css/nav.css?v=20260615e" rel="stylesheet" />
     <link href="css/dark.css?v=20260615c" rel="stylesheet" />
-    <link href="css/search.css?v=20260615a" rel="stylesheet" />
     <!-- Apply saved theme before paint to avoid a flash of the wrong mode -->
     <script>(function(){try{var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 </head>
@@ -161,8 +159,7 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <!-- Core theme JS-->
-    <script src="js/search-index.js?v=20260615a"></script>
-    <script src="js/scripts.js?v=20260615i"></script>
+    <script src="js/scripts.js?v=20260615g"></script>
 
     <script>
     // ── Experience Footprint Map ─────────────────────────────────────
