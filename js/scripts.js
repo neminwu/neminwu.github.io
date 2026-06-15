@@ -5,7 +5,7 @@
 */
 //
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -18,26 +18,24 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Explicitly initialize Bootstrap Collapse and wire up the toggler
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    // Initialize navbar collapse (lets Bootstrap's own data-bs-toggle handle clicks)
     const navbarCollapseEl = document.body.querySelector('#navbarResponsive');
-    let bsCollapse = null;
-    if (navbarCollapseEl) {
-        bsCollapse = new bootstrap.Collapse(navbarCollapseEl, { toggle: false });
-    }
-    if (navbarToggler && bsCollapse) {
-        navbarToggler.addEventListener('click', () => bsCollapse.toggle());
-    }
+    const bsCollapse = navbarCollapseEl
+        ? new bootstrap.Collapse(navbarCollapseEl, { toggle: false })
+        : null;
 
-    // Close navbar when a nav link is clicked (mobile)
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (responsiveNavItem.classList.contains('dropdown-toggle')) return;
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                bsCollapse.hide();
+    // Initialize all dropdowns explicitly
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(el => {
+        new bootstrap.Dropdown(el);
+    });
+
+    // Close navbar when a plain nav link is clicked on mobile
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (link.classList.contains('dropdown-toggle')) return;
+            if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
+                bsCollapse && bsCollapse.hide();
             }
         });
     });
