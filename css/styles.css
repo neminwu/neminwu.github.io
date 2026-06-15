@@ -12729,6 +12729,11 @@ p.lead {
 }
 
 /* Social icons — brand colors, Tiger Orange on hover */
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
 .social-icons .social-icon {
   display: inline-flex;
   align-items: center;
@@ -12749,6 +12754,15 @@ p.lead {
 .social-icons .social-icon:nth-child(2) { background-color: #24292e; }
 /* Google Scholar */
 .social-icons .social-icon:nth-child(3) { background-color: #4285F4; }
+/* ResearchGate & ORCID — image logos fill the circle (padding baked into images) */
+.social-icons .social-icon.social-icon-img { background: none; padding: 0; overflow: hidden; }
+.social-icons .social-icon.social-icon-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+  display: block;
+}
 
 .social-icons .social-icon:last-child {
   margin-right: 0;
