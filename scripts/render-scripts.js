@@ -1,3 +1,4 @@
+// Copies src/js/ → dist/js/ and prepends the MIT license header to scripts.js.
 'use strict';
 const fs = require('fs');
 const packageJSON = require('../package.json');

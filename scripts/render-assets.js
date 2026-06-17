@@ -1,3 +1,4 @@
+// Copies src/assets/ → dist/assets/ (images, fonts, and other static files).
 'use strict';
 const fs = require('fs');
 const upath = require('upath');

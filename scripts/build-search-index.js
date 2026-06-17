@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const PAGES = ['index.html', 'experience.html', 'research.html', 'awards.html', 'interests.html'];
+const PAGES = ['index.html', 'experience.html', 'research.html', 'interests.html'];
 
 const VOID = new Set(['img', 'input', 'br', 'hr', 'meta', 'link', 'source', 'area', 'base', 'col', 'embed', 'param', 'track', 'wbr']);
 

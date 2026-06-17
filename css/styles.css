@@ -12628,34 +12628,34 @@ fieldset:disabled .btn {
 
 body {
   padding-top: 56px;
-  color: #1a1a2e;
+  color: #023047;
 }
 
 h1, .h1 {
   font-size: 2.2rem;
   line-height: 1.15;
   font-weight: 700;
-  color: #023047;
+  color: #000000;
 }
 
 h2, .h2 {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #023047;
+  color: #000000;
 }
 
 h3, .h3 {
   font-size: 1.15rem;
   font-weight: 600;
-  color: #219ebc;
+  color: #023047;
 }
 
 p.lead {
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.7;
-  color: #444;
+  color: #023047;
 }
 
 .subheading {
@@ -12797,13 +12797,13 @@ hr {
 
 .edu-degree {
   font-size: 0.95rem;
-  color: #6c757d;
+  color: #023047;
   margin-top: 0.1rem;
 }
 
 .edu-gpa {
   font-size: 0.9rem;
-  color: #888;
+  color: #023047;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -13009,7 +13009,7 @@ section.resume-section .resume-section-content {
   padding: 1rem 0.85rem;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #219ebc #011a26;
+  scrollbar-color: #219ebc #023047;
 }
 
 .tl-label {
@@ -13221,23 +13221,23 @@ section.resume-section .resume-section-content {
 
 .popup-name {
   font-size: 0.8rem;
-  color: #555;
+  color: #023047;
   margin-top: 0.15rem;
 }
 
 .popup-loc {
   font-size: 0.73rem;
-  color: #888;
+  color: #023047;
   margin-top: 0.2rem;
 }
 
 .popup-desc {
   font-size: 0.78rem;
-  color: #555;
+  color: #023047;
   line-height: 1.55;
   margin-top: 0.55rem;
   padding-top: 0.55rem;
-  border-top: 1px solid #eef0f2;
+  border-top: 1px solid #8ecae6;
 }
 
 /* ── Responsive ── */

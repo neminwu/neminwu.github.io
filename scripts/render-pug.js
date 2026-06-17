@@ -1,3 +1,4 @@
+// LEGACY — Compiles a single .pug file to .html. Not used in the current workflow.
 'use strict';
 const fs = require('fs');
 const upath = require('upath');

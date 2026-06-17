@@ -48,33 +48,34 @@
 
 /* ------------------------------------------------------------------
    Palette — ONLY the existing site theme colors are used below:
-     #011a26  deepest navy  → page background (darkest layer)
-     #012535  deep navy     → already the timeline/dropdown panel color
-     #023047  navbar blue   → stays the elevated top bar (lighter than page)
-     #8ecae6  light blue    → primary headings / accents
-     #219ebc  medium blue   → sub-headings (h3), keeps light-mode hierarchy
+     #000000  black         → navbar background (darkest layer / chrome)
+     #011a26  deepest navy  → dropdown panel color
+     #023047  deep space    → page body background (content layer)
+     #8ecae6  light blue    → h3 headings / secondary accents
      #ffb703  gold          → hover / highlights
-     #ffffff  white         → primary body text (same as the timeline uses)
-   Text-on-dark follows the site's own timeline pattern: white for primary
-   text, light-blue for labels, dimmed white (rgba) for muted text.
+     #ffffff  white         → h1/h2 headings (most prominent) + primary body text
+   Hierarchy in dark mode: black nav > deep-space body > white h2 > sky-blue h3
    ------------------------------------------------------------------ */
 
-/* ── Page background: the page is the DARKEST layer, so the navbar
-      (#023047) now reads as a lighter, elevated bar above it. ──────── */
-html[data-theme="dark"] body {
+/* ── Navbar: the darkest layer (chrome sits below content visually) ── */
+html[data-theme="dark"] #topNav {
   background-color: #011a26;
+}
+
+/* ── Page body: slightly lighter than the navbar ──────────────────── */
+html[data-theme="dark"] body {
+  background-color: #023047;
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* ── Headings — distinct hierarchy, mirroring light mode ────────────
-      h1/h2 = light blue (#8ecae6),  h3 = medium blue (#219ebc). ────── */
+/* ── Headings — white h1/h2 most prominent, sky-blue h3 secondary ── */
 html[data-theme="dark"] h1, html[data-theme="dark"] .h1,
 html[data-theme="dark"] h2, html[data-theme="dark"] .h2 {
-  color: #8ecae6;
+  color: #ffffff;
 }
 
 html[data-theme="dark"] h3, html[data-theme="dark"] .h3 {
-  color: #219ebc;
+  color: #8ecae6;
 }
 
 /* ── Body copy ──────────────────────────────────────────────────── */
@@ -89,7 +90,7 @@ html[data-theme="dark"] p.lead {
 }
 
 html[data-theme="dark"] .subheading {
-  color: #8ecae6;
+  color: #219ebc;
 }
 
 html[data-theme="dark"] .text-muted {

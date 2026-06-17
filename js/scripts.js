@@ -9,6 +9,8 @@
 */
 
 // ── Single source of truth for the whole site's navigation ──────────
+// Children may target a hash on the parent's page ({ hash }) OR their own
+// page ({ page, optional hash }) — the navbar builder handles both.
 const NAV = [
     { label: 'About', page: 'index.html' },
     {
@@ -17,6 +19,7 @@ const NAV = [
             { label: 'Education', hash: 'education' },
             { label: 'Teaching Experience', hash: 'teaching' },
             { label: 'Industry Experience', hash: 'industry' },
+            { label: 'Awards', hash: 'awards' },
             { label: 'Footprint', hash: 'footprint' },
         ]
     },
@@ -28,8 +31,15 @@ const NAV = [
             { label: 'Presentations & Talks', hash: 'presentations' },
         ]
     },
-    { label: 'Awards', page: 'awards.html' },
-    { label: 'Off the Clock', page: 'interests.html' },
+    {
+        label: 'Fun', page: 'interests.html',
+        children: [
+            { label: 'Moda',      hash: 'moda' },
+            { label: 'Reading',   hash: 'reading' },
+            { label: 'Watching',  hash: 'watching' },
+            { label: 'Listening', hash: 'listening' },
+        ]
+    },
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -44,7 +54,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         NAV.forEach(item => {
             const li = document.createElement('li');
-            const isActive = item.page === current;
+            const isActive = item.page === current ||
+                (item.children || []).some(c => c.page === current);
 
             if (item.children && item.children.length) {
                 li.className = 'nav-item dropdown';
@@ -60,7 +71,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     const cli = document.createElement('li');
                     const ca = document.createElement('a');
                     ca.className = 'dropdown-item';
-                    ca.href = item.page + '#' + c.hash;
+                    ca.href = c.page
+                        ? (c.page + (c.hash ? '#' + c.hash : ''))
+                        : (item.page + '#' + c.hash);
                     ca.textContent = c.label;
                     cli.appendChild(ca);
                     menu.appendChild(cli);
@@ -185,7 +198,10 @@ window.addEventListener('DOMContentLoaded', () => {
     if (searchBtn) {
         // Page → display label, from the NAV config (single source of truth)
         const pageLabel = {};
-        NAV.forEach(n => { pageLabel[n.page] = n.label; });
+        NAV.forEach(n => {
+            pageLabel[n.page] = n.label;
+            (n.children || []).forEach(c => { if (c.page) pageLabel[c.page] = c.label; });
+        });
         const pages = Object.keys(pageLabel);
 
         // Build the overlay UI once

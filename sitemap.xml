@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://neminwu.github.io/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://neminwu.github.io/experience.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -16,13 +16,23 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neminwu.github.io/awards.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <priority>0.6</priority>
+    <loc>https://neminwu.github.io/interests.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://neminwu.github.io/interests.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://neminwu.github.io/reading.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://neminwu.github.io/watching.html</loc>
+    <lastmod>2026-06-17</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://neminwu.github.io/listening.html</loc>
+    <lastmod>2026-06-17</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>

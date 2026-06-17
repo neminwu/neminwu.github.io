@@ -12,7 +12,7 @@
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Nemin Wu (伍讷敏) — Ph.D. student in Geography and M.S. student in Artificial Intelligence at the University of Georgia. 伍讷敏，佐治亚大学地理学博士生、人工智能硕士生。" />
+    <meta name="description" content="Nemin Wu (伍讷敏) — a curious reader, geographer, and AI student at the University of Georgia. Currently reading How Computers Work and How an Economy Grows and Why It Crashes." />
     <meta name="author" content="Nemin Wu (伍讷敏)" />
     <meta name="keywords" content="Nemin Wu, 伍讷敏, University of Georgia, UGA, Geography, GIS, spatial representation learning, 地理信息科学" />
     <title>Nemin Wu</title>
@@ -21,9 +21,9 @@
     <!-- Open Graph / social preview -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Nemin Wu" />
-    <meta property="og:description" content="Nemin Wu — Ph.D. student in Geography and M.S. student in Artificial Intelligence at the University of Georgia." />
+    <meta property="og:description" content="A curious reader, geographer, and AI student at the University of Georgia. Currently reading How Computers Work and How an Economy Grows and Why It Crashes." />
     <meta property="og:url" content="https://neminwu.github.io/" />
-    <meta property="og:image" content="https://neminwu.github.io/img/neggplant.jpg" />
+    <meta property="og:image" content="https://neminwu.github.io/img/profile/neggplant.jpg" />
     <meta name="twitter:card" content="summary" />
 
     <!-- Structured data: links this site to Nemin Wu's other profiles -->
@@ -34,7 +34,8 @@
       "name": "Nemin Wu",
       "alternateName": "伍讷敏",
       "url": "https://neminwu.github.io/",
-      "image": "https://neminwu.github.io/img/neggplant.jpg",
+      "image": "https://neminwu.github.io/img/profile/neggplant.jpg",
+      "description": "A curious reader, geographer, and AI student at the University of Georgia who loves books, films, and podcasts. Currently reading How Computers Work and How an Economy Grows and Why It Crashes.",
       "jobTitle": "Ph.D. student in Geography; M.S. student in Artificial Intelligence",
       "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Georgia" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Wuhan University" },
@@ -125,7 +126,7 @@
             <div class="resume-section-content">
                 <div class="d-flex flex-column flex-md-row align-items-md-center mb-4">
                     <img class="img-profile rounded-circle me-md-4 mb-3 mb-md-0"
-                        src="img/neggplant.jpg" alt="Nemin Wu" />
+                        src="img/profile/neggplant.jpg" alt="Nemin Wu" />
                     <div>
                         <h1 class="mb-1">Nemin Wu</h1>
                         <div class="subheading mb-1">University of Georgia · Athens, GA</div>
@@ -136,20 +137,24 @@
                     <div class="reading-eyebrow"><i class="fa-solid fa-book-open-reader"></i> Currently reading</div>
                     <div class="reading-books">
                         <a class="book-card" href="https://www.goodreads.com/book/show/30870.How_Computers_Work" target="_blank" rel="noopener">
-                            <img src="https://covers.openlibrary.org/b/id/7446331-L.jpg" alt="How Computers Work by Ron White" loading="lazy" onerror="this.onerror=null;this.src='img/book-computers.svg';" />
+                            <img src="https://covers.openlibrary.org/b/id/7446331-L.jpg" alt="How Computers Work by Ron White" loading="lazy" onerror="this.onerror=null;this.src='img/fun/reading/book-computers.svg';" />
                             <div>
                                 <div class="book-title">How Computers Work</div>
                                 <div class="book-author">Ron White</div>
                             </div>
                         </a>
                         <a class="book-card" href="https://www.goodreads.com/book/show/7048818-how-an-economy-grows-and-why-it-crashes" target="_blank" rel="noopener">
-                            <img src="https://covers.openlibrary.org/b/id/8769887-L.jpg" alt="How an Economy Grows and Why It Crashes by Peter and Andrew Schiff" loading="lazy" onerror="this.onerror=null;this.src='img/book-economy.svg';" />
+                            <img src="https://covers.openlibrary.org/b/id/8769887-L.jpg" alt="How an Economy Grows and Why It Crashes by Peter and Andrew Schiff" loading="lazy" onerror="this.onerror=null;this.src='img/fun/reading/book-economy.svg';" />
                             <div>
                                 <div class="book-title">How an Economy Grows and Why It Crashes</div>
                                 <div class="book-author">Peter &amp; Andrew Schiff</div>
                             </div>
                         </a>
                     </div>
+                </div>
+                <div class="mb-4">
+                    <div class="reading-eyebrow"><i class="fa-solid fa-film"></i> Recently watching</div>
+                    <div class="reading-books" id="homeWatching"></div>
                 </div>
                 <div class="social-icons">
                     <a class="social-icon" href="https://www.linkedin.com/in/neminwu">
@@ -171,8 +176,38 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/search-index.js?v=20260615a"></script>
-    <script src="js/scripts.js?v=20260615i"></script>
+    <script src="js/search-index.js?v=20260617a"></script>
+    <script src="js/scripts.js?v=20260617a"></script>
+
+    <script>
+    // Recently watching — featured on the homepage. Add a few items (newest
+    // first); the full list lives on watching.html. Each: { title, year,
+    // poster (optional image URL), link (optional) }.
+    const RECENT_WATCHING = [
+        // { title: 'Past Lives', year: 2023, poster: '', link: '' },
+    ];
+    (function () {
+        const el = document.getElementById('homeWatching');
+        if (!el) return;
+        if (!RECENT_WATCHING.length) {
+            el.innerHTML =
+                '<a class="book-card" href="watching.html" style="align-items:center">' +
+                '<div><div class="book-title">See what I\'m watching →</div>' +
+                '<div class="book-author">films &amp; shows I\'ve been enjoying</div></div></a>';
+            return;
+        }
+        el.innerHTML = RECENT_WATCHING.slice(0, 3).map(function (m) {
+            const poster = m.poster
+                ? '<img src="' + m.poster + '" alt="' + m.title.replace(/"/g, '&quot;') + '" loading="lazy" />'
+                : '';
+            const href = m.link || 'watching.html';
+            return '<a class="book-card" href="' + href + '"' + (m.link ? ' target="_blank" rel="noopener"' : '') + '>' +
+                poster +
+                '<div><div class="book-title">' + m.title + '</div>' +
+                '<div class="book-author">' + (m.year || '') + '</div></div></a>';
+        }).join('');
+    })();
+    </script>
 </body>
 
 </html>

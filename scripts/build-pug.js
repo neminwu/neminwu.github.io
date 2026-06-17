@@ -1,3 +1,4 @@
+// LEGACY — Pug templates are not maintained; HTML files are edited directly.
 'use strict';
 const upath = require('upath');
 const sh = require('shelljs');

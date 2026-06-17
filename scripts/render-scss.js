@@ -1,3 +1,4 @@
+// Compiles src/scss/styles.scss → css/styles.css via Sass + PostCSS autoprefixer.
 'use strict';
 const autoprefixer = require('autoprefixer')
 const fs = require('fs');
