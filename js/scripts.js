@@ -29,7 +29,7 @@ const NAV = [
         ]
     },
     { label: 'Awards', page: 'awards.html' },
-    { label: 'Passions', page: 'interests.html' },
+    { label: 'Off the Clock', page: 'interests.html' },
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
