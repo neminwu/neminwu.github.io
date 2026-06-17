@@ -58,6 +58,57 @@
     <link href="css/search.css?v=20260615a" rel="stylesheet" />
     <!-- Apply saved theme before paint to avoid a flash of the wrong mode -->
     <script>(function(){try{var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+
+    <!-- Currently reading -->
+    <style>
+        .reading-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #219ebc;
+            margin-bottom: 1rem;
+        }
+        .reading-eyebrow i { color: #ffb703; }
+        .reading-books {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .book-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            flex: 1 1 280px;
+            min-width: 260px;
+        }
+        .book-card img {
+            width: 96px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 8px 22px rgba(2, 48, 71, 0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            flex-shrink: 0;
+        }
+        .book-card:hover img {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(2, 48, 71, 0.38);
+        }
+        .book-title {
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.25rem;
+        }
+        .book-author { font-size: 0.9rem; color: #6c757d; }
+        .book-card:hover .book-title { color: #219ebc; }
+        html[data-theme="dark"] .book-author { color: rgba(255, 255, 255, 0.55); }
+        html[data-theme="dark"] .book-card img { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
+    </style>
 </head>
 
 <body id="page-top" data-page="index.html">
@@ -81,13 +132,25 @@
                         <a href="mailto:Nemin.Wu[at]uga.edu">Nemin.Wu[at]uga.edu</a>
                     </div>
                 </div>
-                <p class="lead mb-4">Nemin Wu is a Ph.D. student in Geography and a Master's student in Artificial
-                    Intelligence at the University of Georgia. She earned her Bachelor's degree from Wuhan University.
-                    Her research is focused on spatial heterogeneity, spatial representation learning, and GIS for
-                    health and environment. Nemin has been recognized with several awards, including 1st place in the
-                    2024 AAG GISS Graduate Student Honors Paper Award, 1st place in the 2024 Graduate Student Lightning
-                    Talk Competition on GIS Day at UGA, and 1st place for her presentation at the 10th Annual Health
-                    Services Research Day at Emory University.</p>
+                <div class="mb-4">
+                    <div class="reading-eyebrow"><i class="fa-solid fa-book-open-reader"></i> Currently reading</div>
+                    <div class="reading-books">
+                        <a class="book-card" href="https://www.goodreads.com/book/show/30870.How_Computers_Work" target="_blank" rel="noopener">
+                            <img src="img/book-computers.svg" alt="How Computers Work by Ron White" />
+                            <div>
+                                <div class="book-title">How Computers Work</div>
+                                <div class="book-author">Ron White</div>
+                            </div>
+                        </a>
+                        <a class="book-card" href="https://www.goodreads.com/book/show/7048818-how-an-economy-grows-and-why-it-crashes" target="_blank" rel="noopener">
+                            <img src="img/book-economy.svg" alt="How an Economy Grows and Why It Crashes by Peter and Andrew Schiff" />
+                            <div>
+                                <div class="book-title">How an Economy Grows and Why It Crashes</div>
+                                <div class="book-author">Peter &amp; Andrew Schiff</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <div class="social-icons">
                     <a class="social-icon" href="https://www.linkedin.com/in/neminwu">
                         <i class="fab fa-linkedin-in"></i></a>
