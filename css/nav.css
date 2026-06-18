@@ -28,3 +28,40 @@
 #topNav .nav-link.active {
     font-weight: 700;
 }
+
+/* ── Nav icon buttons (search) ─────────────────────────────── */
+.theme-toggle-item {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: #8ecae6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    line-height: 1;
+    padding: 1rem 0.5rem;
+    margin-left: 0.3rem;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+    color: #ffb703;
+    transform: translateY(-1px);
+    outline: none;
+}
+
+@media (max-width: 991.98px) {
+    .theme-toggle { padding: 0.5rem 0; margin: 0.2rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-toggle { transition: color 0.2s ease; }
+    .theme-toggle:hover, .theme-toggle:focus { transform: none; }
+}

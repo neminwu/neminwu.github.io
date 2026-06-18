@@ -76,7 +76,7 @@
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
   --bs-link-color: #219ebc;
-  --bs-link-hover-color: #023047;
+  --bs-link-hover-color: #000000;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -12628,41 +12628,41 @@ fieldset:disabled .btn {
 
 body {
   padding-top: 56px;
-  color: #023047;
+  color: #000000;
 }
 
 h1, .h1 {
   font-size: 2.2rem;
   line-height: 1.15;
   font-weight: 700;
-  color: #000000;
+  color: #fb8500;
 }
 
 h2, .h2 {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: #fb8500;
 }
 
 h3, .h3 {
   font-size: 1.15rem;
   font-weight: 600;
-  color: #023047;
+  color: #8ecae6;
 }
 
 p.lead {
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.7;
-  color: #023047;
+  color: #000000;
 }
 
 .subheading {
   font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
-  color: #219ebc;
+  color: #ffb703;
   letter-spacing: 0.01em;
 }
 
@@ -12792,18 +12792,18 @@ hr {
 .edu-school {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #023047;
+  color: #000000;
 }
 
 .edu-degree {
   font-size: 0.95rem;
-  color: #023047;
+  color: #000000;
   margin-top: 0.1rem;
 }
 
 .edu-gpa {
   font-size: 0.9rem;
-  color: #023047;
+  color: #000000;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -13109,7 +13109,7 @@ section.resume-section .resume-section-content {
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.13);
   font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
-  color: #023047;
+  color: #000000;
   line-height: 1;
 }
 
@@ -13215,25 +13215,25 @@ section.resume-section .resume-section-content {
 .popup-role {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #023047;
+  color: #000000;
   line-height: 1.2;
 }
 
 .popup-name {
   font-size: 0.8rem;
-  color: #023047;
+  color: #000000;
   margin-top: 0.15rem;
 }
 
 .popup-loc {
   font-size: 0.73rem;
-  color: #023047;
+  color: #000000;
   margin-top: 0.2rem;
 }
 
 .popup-desc {
   font-size: 0.78rem;
-  color: #023047;
+  color: #000000;
   line-height: 1.55;
   margin-top: 0.55rem;
   padding-top: 0.55rem;

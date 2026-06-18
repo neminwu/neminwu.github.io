@@ -102,17 +102,6 @@ window.addEventListener('DOMContentLoaded', () => {
         searchLi.appendChild(searchBtn);
         ul.appendChild(searchLi);
 
-        // ── Dark-mode toggle (moon/sun), shared across every page ──
-        const themeLi = document.createElement('li');
-        themeLi.className = 'nav-item theme-toggle-item';
-        const themeBtn = document.createElement('button');
-        themeBtn.type = 'button';
-        themeBtn.id = 'themeToggle';
-        themeBtn.className = 'theme-toggle';
-        themeBtn.setAttribute('aria-label', 'Toggle dark mode');
-        themeLi.appendChild(themeBtn);
-        ul.appendChild(themeLi);
-
         inner.innerHTML =
             '<a class="navbar-brand" href="index.html">Nemin Wu</a>' +
             '<button class="navbar-toggler" type="button" ' +
@@ -157,39 +146,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', e => {
         if (isMobile() && !e.target.closest('#topNav')) closeMenu();
     });
-
-    // ── Dark mode: apply, persist, and wire up the toggle ───────────
-    // The current theme is already set on <html data-theme> by the inline
-    // snippet in each page's <head> (prevents a flash of the wrong theme).
-    // Here we just sync the icon and handle clicks.
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-
-    const applyIcon = theme => {
-        if (!themeToggle) return;
-        themeToggle.innerHTML = theme === 'dark'
-            ? '<i class="fas fa-sun"></i>'
-            : '<i class="fas fa-moon"></i>';
-        themeToggle.setAttribute(
-            'title',
-            theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-        );
-    };
-
-    let theme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    root.setAttribute('data-theme', theme);
-    applyIcon(theme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', e => {
-            e.preventDefault();
-            e.stopPropagation();
-            theme = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
-            root.setAttribute('data-theme', theme);
-            try { localStorage.setItem('theme', theme); } catch (err) { /* ignore */ }
-            applyIcon(theme);
-        });
-    }
 
     // ── Site search ─────────────────────────────────────────────────
     // Client-side, zero-maintenance: on first open we fetch every page
