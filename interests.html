@@ -12,7 +12,7 @@
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Fun with Nemin Wu — Moda the cow cat, reading, watching, and listening." />
+    <meta name="description" content="Fun with Nemin Wu — Moda the cow cat, and a shelf of books, films, and podcasts." />
     <meta name="author" content="Nemin Wu" />
     <title>Fun · Nemin Wu</title>
     <link rel="canonical" href="https://neminwu.github.io/interests.html" />
@@ -263,20 +263,20 @@
         }
 
         /* Reading: book covers (2:3 portrait, blue gradient) */
-        #reading .media-cover {
+        .shelf-reading .media-cover {
             aspect-ratio: 2 / 3;
             background: linear-gradient(135deg, #8ecae6, #219ebc);
         }
-        #reading .media-cover .cover-fallback { color: #023047; }
-        #reading .media-card:hover .media-title { color: #219ebc; }
+        .shelf-reading .media-cover .cover-fallback { color: #023047; }
+        .shelf-reading .media-card:hover .media-title { color: #219ebc; }
 
         /* Watching: film/show posters (2:3 portrait, orange gradient) */
-        #watching .media-cover {
+        .shelf-watching .media-cover {
             aspect-ratio: 2 / 3;
             background: linear-gradient(135deg, #ffb703, #fb8500);
         }
-        #watching .media-cover .cover-fallback { color: #023047; }
-        #watching .media-card:hover .media-title { color: #fb8500; }
+        .shelf-watching .media-cover .cover-fallback { color: #023047; }
+        .shelf-watching .media-card:hover .media-title { color: #fb8500; }
         .media-badge {
             position: absolute; top: 8px; left: 8px;
             background: rgba(2, 48, 71, 0.82); color: #fff;
@@ -291,13 +291,13 @@
         }
 
         /* Listening: podcast art (1:1 square, deep gradient) */
-        #listening .media-cover {
+        .shelf-listening .media-cover {
             aspect-ratio: 1 / 1;
             border-radius: 12px;
             background: linear-gradient(135deg, #8ecae6, #023047);
         }
-        #listening .media-cover .cover-fallback { color: #fff; }
-        #listening .media-card:hover .media-title { color: #219ebc; }
+        .shelf-listening .media-cover .cover-fallback { color: #fff; }
+        .shelf-listening .media-card:hover .media-title { color: #219ebc; }
         .play-badge {
             position: absolute; bottom: 8px; right: 8px;
             width: 30px; height: 30px; border-radius: 50%;
@@ -339,27 +339,28 @@
                     </div>
                 </div>
 
-                <!-- Reading ────────────────────────────────────────────── -->
-                <div id="reading" class="resume-content mb-5">
-                    <h3 class="mb-4">Reading</h3>
-                    <p class="subheading mb-2">Currently reading</p>
-                    <div class="shelf mb-5" id="currentShelf"></div>
-                    <p class="subheading mb-2">Recently finished</p>
-                    <div class="shelf" id="finishedShelf"></div>
-                </div>
+                <!-- Shelf ──────────────────────────────────────────────── -->
+                <div id="shelf" class="resume-content mb-5">
+                    <h3 class="mb-4">Shelf</h3>
 
-                <!-- Watching ───────────────────────────────────────────── -->
-                <div id="watching" class="resume-content mb-5">
-                    <h3 class="mb-3">Watching</h3>
-                    <p class="mb-4">Films and shows I've been enjoying lately.</p>
-                    <div class="shelf" id="watchShelf"></div>
-                </div>
+                    <div class="shelf-reading mb-5">
+                        <p class="subheading mb-2">Currently reading</p>
+                        <div class="shelf mb-5" id="currentShelf"></div>
+                        <p class="subheading mb-2">Recently finished</p>
+                        <div class="shelf" id="finishedShelf"></div>
+                    </div>
 
-                <!-- Listening ──────────────────────────────────────────── -->
-                <div id="listening" class="resume-content mb-5">
-                    <h3 class="mb-3">Listening</h3>
-                    <p class="mb-4">Podcasts and shows in my ears lately.</p>
-                    <div class="shelf" id="listenShelf"></div>
+                    <div class="shelf-watching mb-5">
+                        <p class="subheading mb-2">Watching</p>
+                        <p class="mb-4">Films and shows I've been enjoying lately.</p>
+                        <div class="shelf" id="watchShelf"></div>
+                    </div>
+
+                    <div class="shelf-listening">
+                        <p class="subheading mb-2">Listening</p>
+                        <p class="mb-4">Podcasts and shows in my ears lately.</p>
+                        <div class="shelf" id="listenShelf"></div>
+                    </div>
                 </div>
 
             </div>
@@ -584,8 +585,7 @@
     //   kind   : 'Film' or 'Series' — shown as a badge on the poster
     //   rating : any text, e.g. '★★★★☆'
     const WATCHING = [
-        // ← add films/shows here, e.g.
-        // { title: 'Past Lives', year: 2023, kind: 'Film', rating: '★★★★★', note: 'quietly devastating' },
+        { title: 'Toy Story 5', year: 'June 2026', kind: 'Film' },
     ];
 
     (function () {

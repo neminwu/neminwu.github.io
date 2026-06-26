@@ -35,9 +35,7 @@ const NAV = [
         label: 'Fun', page: 'interests.html',
         children: [
             { label: 'Moda',      hash: 'moda' },
-            { label: 'Reading',   hash: 'reading' },
-            { label: 'Watching',  hash: 'watching' },
-            { label: 'Listening', hash: 'listening' },
+            { label: 'Shelf',     hash: 'shelf' },
         ]
     },
 ];
