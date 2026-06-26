@@ -290,22 +290,6 @@
             padding: 2px 8px; border-radius: 20px;
         }
 
-        /* Listening: podcast art (1:1 square, deep gradient) */
-        .shelf-listening .media-cover {
-            aspect-ratio: 1 / 1;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #8ecae6, #023047);
-        }
-        .shelf-listening .media-cover .cover-fallback { color: #fff; }
-        .shelf-listening .media-card:hover .media-title { color: #219ebc; }
-        .play-badge {
-            position: absolute; bottom: 8px; right: 8px;
-            width: 30px; height: 30px; border-radius: 50%;
-            background: rgba(255, 255, 255, 0.92); color: #023047;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px;
-        }
-
     </style>
 </head>
 
@@ -356,11 +340,6 @@
                         <div class="shelf" id="watchShelf"></div>
                     </div>
 
-                    <div class="shelf-listening">
-                        <p class="subheading mb-2">Listening</p>
-                        <p class="mb-4">Podcasts and shows in my ears lately.</p>
-                        <div class="shelf" id="listenShelf"></div>
-                    </div>
                 </div>
 
             </div>
@@ -585,7 +564,7 @@
     //   kind   : 'Film' or 'Series' — shown as a badge on the poster
     //   rating : any text, e.g. '★★★★☆'
     const WATCHING = [
-        { title: 'Toy Story 5', year: 'June 2026', kind: 'Film' },
+        { title: 'Toy Story 5', year: 'June 2026', kind: 'Film', poster: 'img/fun/watching/toy-story-5.jpg', link: 'https://www.imdb.com/title/tt29355505/' },
     ];
 
     (function () {
@@ -616,39 +595,6 @@
         }
     })();
 
-    // ── Listening ─────────────────────────────────────────────────────
-    // Each item: { title, host?, note?, art?, link? }
-    //   art  : square podcast artwork URL (grab from Apple Podcasts or Spotify)
-    const LISTENING = [
-        // ← add podcasts here, e.g.
-        // { title: 'Hardcore History', host: 'Dan Carlin', note: 'long, deep, addictive' },
-    ];
-
-    (function () {
-        function podcastCard(p) {
-            const tag = p.link ? 'a' : 'div';
-            const href = p.link ? ' href="' + p.link + '" target="_blank" rel="noopener"' : '';
-            const img = p.art
-                ? '<img src="' + p.art + '" alt="' + p.title.replace(/"/g, '&quot;') + ' artwork" loading="lazy" ' +
-                  'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" />' +
-                  '<div class="cover-fallback" style="display:none">' + p.title + '</div>'
-                : '<div class="cover-fallback">' + p.title + '</div>';
-            return '<' + tag + ' class="media-card"' + href + '>' +
-                '<div class="media-cover">' + img + '<span class="play-badge"><i class="fas fa-podcast"></i></span></div>' +
-                '<div class="media-title">' + p.title + '</div>' +
-                '<div class="media-sub">' + (p.host || '') + '</div>' +
-                (p.note ? '<div class="media-note">' + p.note + '</div>' : '') +
-                '</' + tag + '>';
-        }
-        const el = document.getElementById('listenShelf');
-        if (el) {
-            if (!LISTENING.length) {
-                el.outerHTML = '<div class="shelf-empty">A listening list is on the way — podcasts I love will show up here soon.</div>';
-            } else {
-                el.innerHTML = LISTENING.map(podcastCard).join('');
-            }
-        }
-    })();
     </script>
 </body>
 
