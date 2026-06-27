@@ -617,7 +617,8 @@
                   'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" />' +
                   '<div class="cover-fallback" style="display:none">' + m.title + '</div>'
                 : '<div class="cover-fallback">' + m.title + '</div>';
-            const badge = m.kind ? '<span class="media-badge">' + m.kind + '</span>' : '';
+            const kindIcon = m.kind === 'Series' ? 'fa-tv' : 'fa-film';
+            const badge = m.kind ? '<span class="media-badge"><i class="fas ' + kindIcon + '"></i></span>' : '';
             const rating = m.rating ? '<span class="media-rating">' + m.rating + '</span>' : '';
             return '<' + tag + ' class="media-card"' + href + '>' +
                 '<div class="media-cover">' + badge + img + rating + '</div>' +
