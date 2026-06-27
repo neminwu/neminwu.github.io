@@ -290,6 +290,37 @@
             padding: 2px 8px; border-radius: 20px;
         }
 
+        /* Stacked "show more" tile */
+        .shelf-more { position: relative; cursor: pointer; isolation: isolate; }
+        .shelf-more-face {
+            position: relative;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            box-shadow: 0 8px 22px rgba(2,48,71,0.28);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1; color: #023047;
+        }
+        .shelf-more-face::before, .shelf-more-face::after {
+            content: ''; position: absolute; inset: 0;
+            border-radius: 8px; z-index: -1;
+        }
+        .shelf-more-face::before { transform: rotate(-3deg) translate(-3px, 6px); opacity: .65; }
+        .shelf-more-face::after  { transform: rotate(-6deg) translate(-6px, 12px); opacity: .38; }
+        .shelf-more:hover .shelf-more-face {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(2,48,71,0.4);
+        }
+        .shelf-reading .shelf-more-face,
+        .shelf-reading .shelf-more-face::before,
+        .shelf-reading .shelf-more-face::after  { background: linear-gradient(135deg, #8ecae6, #219ebc); }
+        .shelf-watching .shelf-more-face,
+        .shelf-watching .shelf-more-face::before,
+        .shelf-watching .shelf-more-face::after { background: linear-gradient(135deg, #ffb703, #fb8500); }
+        .shelf-more-count { font-size: 2rem; font-weight: 700; line-height: 1; }
+        .shelf-more-label { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-top: .35rem; opacity: .7; }
+
     </style>
 </head>
 
@@ -329,9 +360,7 @@
 
                     <div class="shelf-reading mb-5">
                         <p class="subheading mb-2">Currently reading</p>
-                        <div class="shelf mb-5" id="currentShelf"></div>
-                        <p class="subheading mb-2">Recently finished</p>
-                        <div class="shelf" id="finishedShelf"></div>
+                        <div class="shelf" id="currentShelf"></div>
                     </div>
 
                     <div class="shelf-watching mb-5">
@@ -502,6 +531,28 @@
         else { userPaused = true; playBtn.innerHTML = '&#9654;'; }
     })();
 
+    // ── Shared shelf renderer (max 5 visible; extras fold into a stacked tile) ──
+    function renderShelf(id, items, cardFn, emptyMsg) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (!items.length) { el.outerHTML = '<div class="shelf-empty">' + emptyMsg + '</div>'; return; }
+        const MAX = 5;
+        el.innerHTML = items.slice(0, MAX).map(cardFn).join('');
+        if (items.length > MAX) {
+            const more = document.createElement('div');
+            more.className = 'shelf-more media-card';
+            more.innerHTML =
+                '<div class="shelf-more-face">' +
+                    '<div class="shelf-more-count">+' + (items.length - MAX) + '</div>' +
+                    '<div class="shelf-more-label">more</div>' +
+                '</div>';
+            more.addEventListener('click', function () {
+                el.innerHTML = items.map(cardFn).join('');
+            });
+            el.appendChild(more);
+        }
+    }
+
     // ── Reading ──────────────────────────────────────────────────────
     // Each book: { title, author, link?, coverId | isbn | cover, note? }
     //   coverId : Open Library numeric id   (most reliable)
@@ -522,10 +573,6 @@
         }
     ];
 
-    const BOOKS_FINISHED = [
-        // ← add finished books here, newest first
-    ];
-
     (function () {
         function coverUrl(b) {
             if (b.cover) return b.cover;
@@ -542,21 +589,15 @@
                   'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" />' +
                   '<div class="cover-fallback" style="display:none">' + b.title + '</div>'
                 : '<div class="cover-fallback">' + b.title + '</div>';
+            const badge = '<span class="media-badge"><i class="fas fa-book-open"></i></span>';
             return '<' + tag + ' class="media-card"' + href + '>' +
-                '<div class="media-cover">' + img + '</div>' +
+                '<div class="media-cover">' + badge + img + '</div>' +
                 '<div class="media-title">' + b.title + '</div>' +
                 '<div class="media-sub">' + (b.author || '') + '</div>' +
                 (b.note ? '<div class="media-note">' + b.note + '</div>' : '') +
                 '</' + tag + '>';
         }
-        function renderShelf(id, list, emptyMsg) {
-            const el = document.getElementById(id);
-            if (!el) return;
-            if (!list.length) { el.outerHTML = '<div class="shelf-empty">' + emptyMsg + '</div>'; return; }
-            el.innerHTML = list.map(bookCard).join('');
-        }
-        renderShelf('currentShelf', BOOKS_CURRENT, 'Nothing on the nightstand right now.');
-        renderShelf('finishedShelf', BOOKS_FINISHED, 'A finished-books shelf is on the way — check back soon.');
+        renderShelf('currentShelf', BOOKS_CURRENT, bookCard, 'Nothing on the nightstand right now.');
     })();
 
     // ── Watching ─────────────────────────────────────────────────────
@@ -585,14 +626,7 @@
                 (m.note ? '<div class="media-note">' + m.note + '</div>' : '') +
                 '</' + tag + '>';
         }
-        const el = document.getElementById('watchShelf');
-        if (el) {
-            if (!WATCHING.length) {
-                el.outerHTML = '<div class="shelf-empty">A watchlist is on the way — films and shows I love will show up here soon.</div>';
-            } else {
-                el.innerHTML = WATCHING.map(filmCard).join('');
-            }
-        }
+        renderShelf('watchShelf', WATCHING, filmCard, 'A watchlist is on the way — films and shows I love will show up here soon.');
     })();
 
     </script>
