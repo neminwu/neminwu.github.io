@@ -147,10 +147,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="mb-4">
-                    <div class="reading-eyebrow"><i class="fa-solid fa-film"></i> Recently watching</div>
-                    <div class="reading-books" id="homeWatching"></div>
-                </div>
                 <div class="social-icons">
                     <a class="social-icon" href="https://www.linkedin.com/in/neminwu">
                         <i class="fab fa-linkedin-in"></i></a>
@@ -173,36 +169,6 @@
     <!-- Core theme JS-->
     <script src="js/search-index.js?v=20260617a"></script>
     <script src="js/scripts.js?v=20260617a"></script>
-
-    <script>
-    // Recently watching — featured on the homepage. Add a few items (newest
-    // first); the full list lives on watching.html. Each: { title, year,
-    // poster (optional image URL), link (optional) }.
-    const RECENT_WATCHING = [
-        // { title: 'Past Lives', year: 2023, poster: '', link: '' },
-    ];
-    (function () {
-        const el = document.getElementById('homeWatching');
-        if (!el) return;
-        if (!RECENT_WATCHING.length) {
-            el.innerHTML =
-                '<a class="book-card" href="watching.html" style="align-items:center">' +
-                '<div><div class="book-title">See what I\'m watching →</div>' +
-                '<div class="book-author">films &amp; shows I\'ve been enjoying</div></div></a>';
-            return;
-        }
-        el.innerHTML = RECENT_WATCHING.slice(0, 3).map(function (m) {
-            const poster = m.poster
-                ? '<img src="' + m.poster + '" alt="' + m.title.replace(/"/g, '&quot;') + '" loading="lazy" />'
-                : '';
-            const href = m.link || 'watching.html';
-            return '<a class="book-card" href="' + href + '"' + (m.link ? ' target="_blank" rel="noopener"' : '') + '>' +
-                poster +
-                '<div><div class="book-title">' + m.title + '</div>' +
-                '<div class="book-author">' + (m.year || '') + '</div></div></a>';
-        }).join('');
-    })();
-    </script>
 </body>
 
 </html>
