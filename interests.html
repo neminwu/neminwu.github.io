@@ -391,6 +391,7 @@
     <!-- Core theme JS-->
     <script src="js/search-index.js?v=20260617a"></script>
     <script src="js/scripts.js?v=20260617a"></script>
+    <script src="js/shelf.js?v=20260928a"></script>
 
     <script>
     // ── Moda: dynamic age + auto-playing carousel + lightbox ────────
@@ -554,85 +555,9 @@
         }
     }
 
-    // ── Reading ──────────────────────────────────────────────────────
-    // Each book: { title, author, link?, coverId | isbn | cover, note? }
-    //   coverId : Open Library numeric id   (most reliable)
-    //   isbn    : 10- or 13-digit ISBN      (auto-looks-up cover)
-    //   cover   : full image URL
-    const BOOKS_CURRENT = [
-        {
-            title: 'How Computers Work',
-            author: 'Ron White',
-            coverId: 7446331,
-            link: 'https://www.goodreads.com/book/show/30870.How_Computers_Work'
-        },
-        {
-            title: 'How an Economy Grows and Why It Crashes',
-            author: 'Peter & Andrew Schiff',
-            coverId: 8769887,
-            link: 'https://www.goodreads.com/book/show/7048818-how-an-economy-grows-and-why-it-crashes'
-        }
-    ];
-
-    (function () {
-        function coverUrl(b) {
-            if (b.cover) return b.cover;
-            if (b.coverId) return 'https://covers.openlibrary.org/b/id/' + b.coverId + '-L.jpg';
-            if (b.isbn) return 'https://covers.openlibrary.org/b/isbn/' + String(b.isbn).replace(/[^0-9Xx]/g, '') + '-L.jpg';
-            return '';
-        }
-        function bookCard(b) {
-            const url = coverUrl(b);
-            const tag = b.link ? 'a' : 'div';
-            const href = b.link ? ' href="' + b.link + '" target="_blank" rel="noopener"' : '';
-            const img = url
-                ? '<img src="' + url + '" alt="' + b.title.replace(/"/g, '&quot;') + ' cover" loading="lazy" ' +
-                  'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" />' +
-                  '<div class="cover-fallback" style="display:none">' + b.title + '</div>'
-                : '<div class="cover-fallback">' + b.title + '</div>';
-            const badge = '<span class="media-badge"><i class="fas fa-book-open"></i></span>';
-            return '<' + tag + ' class="media-card"' + href + '>' +
-                '<div class="media-cover">' + badge + img + '</div>' +
-                '<div class="media-title">' + b.title + '</div>' +
-                '<div class="media-sub">' + (b.author || '') + '</div>' +
-                (b.note ? '<div class="media-note">' + b.note + '</div>' : '') +
-                '</' + tag + '>';
-        }
-        renderShelf('currentShelf', BOOKS_CURRENT, bookCard, 'Nothing on the nightstand right now.');
-    })();
-
-    // ── Watching ─────────────────────────────────────────────────────
-    // Each item: { title, year?, kind?, rating?, note?, poster?, link? }
-    //   kind   : 'Film' or 'Series' — shown as a badge on the poster
-    //   rating : any text, e.g. '★★★★☆'
-    const WATCHING = [
-        { title: 'Once Upon a Time in the Middle East', year: '2026', kind: 'Film', poster: 'img/fun/shelf/once-upon-a-time-in-the-middle-east.jpg', link: 'https://www.imdb.com/title/tt34386754/' },
-        { title: 'Fleabag — Season 2', year: '2019', kind: 'Series', poster: 'img/fun/shelf/fleabag-season-2.jpg', link: 'https://www.imdb.com/title/tt7020996/' },
-        { title: 'Fleabag — Season 1', year: '2016', kind: 'Series', poster: 'img/fun/shelf/fleabag-season-1.jpg', link: 'https://www.imdb.com/title/tt5687612/' },
-        { title: 'Toy Story 5', year: 'June 2026', kind: 'Film', poster: 'img/fun/shelf/toy-story-5.jpg', link: 'https://www.imdb.com/title/tt29355505/' },
-    ];
-
-    (function () {
-        function filmCard(m) {
-            const tag = m.link ? 'a' : 'div';
-            const href = m.link ? ' href="' + m.link + '" target="_blank" rel="noopener"' : '';
-            const img = m.poster
-                ? '<img src="' + m.poster + '" alt="' + m.title.replace(/"/g, '&quot;') + ' poster" loading="lazy" ' +
-                  'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" />' +
-                  '<div class="cover-fallback" style="display:none">' + m.title + '</div>'
-                : '<div class="cover-fallback">' + m.title + '</div>';
-            const kindIcon = m.kind === 'Series' ? 'fa-tv' : 'fa-film';
-            const badge = m.kind ? '<span class="media-badge"><i class="fas ' + kindIcon + '"></i></span>' : '';
-            const rating = m.rating ? '<span class="media-rating">' + m.rating + '</span>' : '';
-            return '<' + tag + ' class="media-card"' + href + '>' +
-                '<div class="media-cover">' + badge + img + rating + '</div>' +
-                '<div class="media-title">' + m.title + '</div>' +
-                '<div class="media-sub">' + (m.year || '') + '</div>' +
-                (m.note ? '<div class="media-note">' + m.note + '</div>' : '') +
-                '</' + tag + '>';
-        }
-        renderShelf('watchShelf', WATCHING, filmCard, 'A watchlist is on the way — films and shows I love will show up here soon.');
-    })();
+    // ── Reading & Watching (data + card builders live in js/shelf.js) ──
+    renderShelf('currentShelf', SHELF.books, SHELF.bookCard, 'Nothing on the nightstand right now.');
+    renderShelf('watchShelf', SHELF.watching, SHELF.filmCard, 'A watchlist is on the way — films and shows I love will show up here soon.');
 
     </script>
 </body>
