@@ -60,7 +60,7 @@
     <link href="css/nav.css?v=20260615e" rel="stylesheet" />
     <link href="css/search.css?v=20260615a" rel="stylesheet" />
 
-    <!-- Currently reading -->
+    <!-- Latest on the shelf -->
     <style>
         .reading-eyebrow {
             display: inline-flex;
@@ -74,39 +74,53 @@
             margin-bottom: 1rem;
         }
         .reading-eyebrow i { color: #ffb703; }
-        .reading-books {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+        .shelf-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; max-width: 760px; }
+        .shelf-all { font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+        .home-shelf {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 1.2rem;
+            max-width: 760px;
         }
-        .book-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: inherit;
-            flex: 1 1 280px;
-            min-width: 260px;
+        @media (max-width: 767px) {
+            .home-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
-        .book-card img {
-            width: 96px;
-            height: auto;
+        .home-shelf .media-card { text-decoration: none; color: inherit; display: block; min-width: 0; }
+        .home-shelf .media-cover {
+            position: relative;
+            aspect-ratio: 2 / 3;
+            width: 100%;
             border-radius: 6px;
+            overflow: hidden;
             box-shadow: 0 8px 22px rgba(2, 48, 71, 0.28);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            flex-shrink: 0;
         }
-        .book-card:hover img {
+        .home-shelf .media-book .media-cover { background: linear-gradient(135deg, #8ecae6, #219ebc); }
+        .home-shelf .media-film .media-cover { background: linear-gradient(135deg, #ffb703, #fb8500); }
+        .home-shelf .media-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .home-shelf .media-card:hover .media-cover {
             transform: translateY(-4px);
             box-shadow: 0 14px 30px rgba(2, 48, 71, 0.38);
         }
-        .book-title {
-            font-weight: 700;
-            line-height: 1.25;
-            margin-bottom: 0.25rem;
+        .home-shelf .cover-fallback {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            padding: 0.5rem; text-align: center;
+            font-weight: 700; font-size: 0.8rem; line-height: 1.2; color: #023047;
         }
-        .book-author { font-size: 0.9rem; color: #023047; }
-        .book-card:hover .book-title { color: #219ebc; }
+        .home-shelf .media-badge {
+            position: absolute; top: 6px; left: 6px;
+            background: rgba(2, 48, 71, 0.82); color: #fff;
+            font-size: 0.65rem; padding: 2px 7px; border-radius: 20px;
+        }
+        .home-shelf .media-rating, .home-shelf .media-note { display: none; }
+        .home-shelf .media-title {
+            font-weight: 700; font-size: 0.85rem; line-height: 1.25; margin-top: 0.5rem;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .home-shelf .media-sub { font-size: 0.78rem; color: #023047; }
+        .home-shelf .media-book:hover .media-title { color: #219ebc; }
+        .home-shelf .media-film:hover .media-title { color: #fb8500; }
     </style>
 </head>
 
@@ -132,23 +146,11 @@
                     </div>
                 </div>
                 <div class="mb-4">
-                    <div class="reading-eyebrow"><i class="fa-solid fa-book-open-reader"></i> Currently reading</div>
-                    <div class="reading-books">
-                        <a class="book-card" href="https://www.goodreads.com/book/show/30870.How_Computers_Work" target="_blank" rel="noopener">
-                            <img src="https://covers.openlibrary.org/b/id/7446331-L.jpg" alt="How Computers Work by Ron White" loading="lazy" onerror="this.onerror=null;this.src='img/fun/reading/book-computers.svg';" />
-                            <div>
-                                <div class="book-title">How Computers Work</div>
-                                <div class="book-author">Ron White</div>
-                            </div>
-                        </a>
-                        <a class="book-card" href="https://www.goodreads.com/book/show/7048818-how-an-economy-grows-and-why-it-crashes" target="_blank" rel="noopener">
-                            <img src="https://covers.openlibrary.org/b/id/8769887-L.jpg" alt="How an Economy Grows and Why It Crashes by Peter and Andrew Schiff" loading="lazy" onerror="this.onerror=null;this.src='img/fun/reading/book-economy.svg';" />
-                            <div>
-                                <div class="book-title">How an Economy Grows and Why It Crashes</div>
-                                <div class="book-author">Peter &amp; Andrew Schiff</div>
-                            </div>
-                        </a>
+                    <div class="shelf-head">
+                        <div class="reading-eyebrow"><i class="fa-solid fa-book-open-reader"></i> Latest on my shelf</div>
+                        <a class="shelf-all" href="interests.html#shelf">See full shelf &rarr;</a>
                     </div>
+                    <div class="home-shelf" id="homeShelf"></div>
                 </div>
                 <div class="social-icons">
                     <a class="social-icon" href="https://www.linkedin.com/in/neminwu">
@@ -172,6 +174,15 @@
     <!-- Core theme JS-->
     <script src="js/search-index.js?v=20260617a"></script>
     <script src="js/scripts.js?v=20260617a"></script>
+    <script src="js/shelf.js?v=20260928a"></script>
+    <script>
+        // Homepage: 5 most recently added shelf items (books + watching)
+        (function () {
+            var el = document.getElementById('homeShelf');
+            if (!el || !window.SHELF) return;
+            el.innerHTML = SHELF.latest(5).map(function (x) { return x.card(x.item); }).join('');
+        })();
+    </script>
 </body>
 
 </html>
