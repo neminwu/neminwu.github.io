@@ -4,7 +4,7 @@
     "description": "Personal website of Nemin Wu — static HTML/CSS/JS, served by GitHub Pages.",
     "scripts": {
         "search": "node scripts/build-search-index.js",
-        "serve": "python3 -m http.server 8000"
+        "serve": "python3 -m http.server 8000 --directory docs"
     },
     "license": "MIT"
 }
