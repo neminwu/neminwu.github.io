@@ -12808,17 +12808,6 @@ hr {
   white-space: nowrap;
 }
 
-/* Awards list — extra breathing room between icon and text */
-.awards-list {
-  padding-left: 3rem;
-}
-
-.awards-list .fa-li {
-  left: -3rem;
-  width: 2rem;
-  text-align: center;
-}
-
 /* Sections */
 section.resume-section {
   padding-top: 1.25rem;
