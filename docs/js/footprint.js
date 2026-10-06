@@ -37,7 +37,7 @@
         },
         {
             place: 'mountainView', type: 'industry', period: 'May 2025 – Mar 2026',
-            role: 'PhD Resident', org: 'Google X',
+            role: 'PhD Resident', org: 'Tapestry, Google X',
             desc: 'Built geospatial reasoning agents for electric grid management and geo-aware computer vision models for grid defect detection.',
         },
         {
