@@ -14,6 +14,7 @@
     'use strict';
 
     const TYPES = {
+        industry:   { label: 'Industry',   color: '#fb8500' },
         research:   { label: 'Research',   color: '#219ebc' },
         teaching:   { label: 'Teaching',   color: '#8ecae6' },
         internship: { label: 'Internship', color: '#ffb703' },
@@ -21,13 +22,24 @@
 
     // `photo` is optional: a path under img/ shown at the top of the popup.
     const PLACES = {
-        athens:  { name: 'Athens, GA, US', latlng: [33.9519, -83.3576] },
-        beijing: { name: 'Beijing, China', latlng: [39.9042, 116.4074] },
-        wuhan:   { name: 'Wuhan, China',   latlng: [30.5928, 114.3055] },
+        mountainView: { name: 'Mountain View, CA, US', latlng: [37.3861, -122.0839] },
+        athens:       { name: 'Athens, GA, US',        latlng: [33.9519, -83.3576] },
+        beijing:      { name: 'Beijing, China',        latlng: [39.9042, 116.4074] },
+        wuhan:        { name: 'Wuhan, China',          latlng: [30.5928, 114.3055] },
     };
 
     // Newest first; this is also the timeline order.
     const ENTRIES = [
+        {
+            place: 'mountainView', type: 'industry', period: 'Aug 2026 – Present',
+            role: 'Machine Learning Engineer', org: 'Tapestry, Google X',
+            desc: 'Working on evaluation of LLM agents.',
+        },
+        {
+            place: 'mountainView', type: 'industry', period: 'May 2025 – Mar 2026',
+            role: 'PhD Resident', org: 'Google X',
+            desc: 'Built geospatial reasoning agents for electric grid management and geo-aware computer vision models for grid defect detection.',
+        },
         {
             place: 'athens', type: 'research', period: 'Jun 2022 – Feb 2024',
             role: 'Research Assistant', org: 'Carl Vinson Institute of Government',
