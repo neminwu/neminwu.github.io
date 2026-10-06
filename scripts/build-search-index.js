@@ -13,7 +13,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.resolve(__dirname, '..');
+// The published site lives in docs/ (GitHub Pages source).
+const ROOT = path.resolve(__dirname, '..', 'docs');
 const PAGES = ['index.html', 'experience.html', 'research.html', 'interests.html'];
 
 const VOID = new Set(['img', 'input', 'br', 'hr', 'meta', 'link', 'source', 'area', 'base', 'col', 'embed', 'param', 'track', 'wbr']);
