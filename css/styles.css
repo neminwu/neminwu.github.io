@@ -12983,7 +12983,7 @@ section.resume-section .resume-section-content {
 
 .map-layout {
   display: flex;
-  height: 460px;
+  height: 520px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(2, 48, 71, 0.2);
@@ -13269,7 +13269,6 @@ section.resume-section .resume-section-content {
   }
   .map-timeline {
     width: 100%;
-    max-height: 180px;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
