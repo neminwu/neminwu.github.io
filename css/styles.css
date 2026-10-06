@@ -13001,29 +13001,63 @@ section.resume-section .resume-section-content {
   scrollbar-color: #219ebc #023047;
 }
 
+.tl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
 .tl-label {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #8ecae6;
-  margin-bottom: 0.9rem;
+}
+
+.tl-reset {
+  background: none;
+  border: 1px solid rgba(142, 202, 230, 0.4);
+  border-radius: 20px;
+  color: #8ecae6;
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tl-reset:hover,
+.tl-reset:focus-visible {
+  color: #ffb703;
+  border-color: #ffb703;
 }
 
 .tl-entry {
   display: flex;
   gap: 0.6rem;
+  width: 100%;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
   border-radius: 6px;
   padding: 0.2rem 0.3rem;
   transition: background 0.2s;
 }
 
-.tl-entry:hover {
-  background: rgba(142, 202, 230, 0.08);
+.tl-entry:hover,
+.tl-entry:focus-visible,
+.tl-entry.is-active {
+  background: rgba(142, 202, 230, 0.1);
 }
 
-.tl-entry:hover .tl-role {
+.tl-entry:hover .tl-role,
+.tl-entry:focus-visible .tl-role,
+.tl-entry.is-active .tl-role {
   color: #ffb703;
 }
 
@@ -13053,6 +13087,12 @@ section.resume-section .resume-section-content {
 
 .tl-info {
   padding-bottom: 0.8rem;
+}
+
+.tl-period,
+.tl-role,
+.tl-org {
+  display: block;
 }
 
 .tl-period {
@@ -13087,6 +13127,12 @@ section.resume-section .resume-section-content {
   height: 100%;
 }
 
+/* Muted basemap. Filter the tiles, not the pane: a pane-level filter shows
+   hairline seams between tiles in Chromium. */
+#experienceMap .leaflet-tile {
+  filter: grayscale(0.75) brightness(1.04) contrast(0.92);
+}
+
 .map-legend {
   position: absolute;
   bottom: 22px;
@@ -13119,26 +13165,18 @@ section.resume-section .resume-section-content {
 
 /* ── Custom marker pin ── */
 .exp-pin {
-  width: 34px;
-  height: 34px;
-  background: var(--pc);
-  color: var(--tc);
+  display: block;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.85rem;
-  font-family: "Calibri", "Candara", "Segoe UI", Arial, sans-serif;
-  border: 3px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(2, 48, 71, 0.4);
   cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition: transform 0.18s;
 }
 
 .exp-pin:hover {
-  transform: scale(1.18);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transform: scale(1.2);
 }
 
 /* ── Popup ── */
@@ -13170,29 +13208,20 @@ section.resume-section .resume-section-content {
   display: block;
 }
 
-.popup-photo-placeholder {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.4rem;
-  gap: 0.3rem;
-}
-
-.popup-photo-placeholder span {
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .popup-body {
   padding: 0.8rem 0.95rem 0.9rem;
 }
 
+.popup-entry + .popup-entry {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid #8ecae6;
+}
+
 .popup-period {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.68rem;
   font-weight: 700;
   color: #219ebc;
@@ -13216,17 +13245,20 @@ section.resume-section .resume-section-content {
 
 .popup-loc {
   font-size: 0.73rem;
-  color: #000000;
-  margin-top: 0.2rem;
+  font-weight: 700;
+  color: #023047;
+  margin-bottom: 0.6rem;
+}
+
+.popup-loc i {
+  color: #fb8500;
 }
 
 .popup-desc {
   font-size: 0.78rem;
   color: #000000;
   line-height: 1.55;
-  margin-top: 0.55rem;
-  padding-top: 0.55rem;
-  border-top: 1px solid #8ecae6;
+  margin-top: 0.4rem;
 }
 
 /* ── Responsive ── */
@@ -13243,6 +13275,8 @@ section.resume-section .resume-section-content {
     gap: 0.5rem;
     padding: 0.75rem;
   }
+  .tl-header { width: 100%; margin-bottom: 0.2rem; }
+  .tl-entry { flex: 1 1 calc(50% - 0.5rem); width: auto; }
   .tl-line { display: none; }
   #experienceMap { height: 320px; }
 }
